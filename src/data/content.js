@@ -145,15 +145,6 @@ export const portfolio = {
   },
   items: [
     {
-      id: "web4you",
-      title: "Web4You",
-      description:
-        "אתר חברתי עם עיצוב יוקרתי שמביא לקוחות בעזרת סטוריים של הצלחה. טכנולוגיות מתקדמות וממיר גבוה של ביקורים ללידים.",
-      image: "/images/web4you.jpeg",
-      url: "https://dolevatik.github.io/Web4You/",
-      tag: "שירותים מקצועיים",
-    },
-    {
       id: "tomer-portfolio",
       title: "Tomer Portfolio",
       description:
