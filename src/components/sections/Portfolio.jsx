@@ -174,7 +174,7 @@ function MobileCarousel() {
 // ── Desktop grid ──────────────────────────────────────────────
 function DesktopGrid() {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-2 gap-6">
       {portfolio.items.map((item, i) => (
         <PortfolioCard key={item.id} item={item} index={i} />
       ))}

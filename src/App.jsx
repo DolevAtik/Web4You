@@ -25,8 +25,8 @@ export default function App() {
         <Benefits />
         <Process />
         <Portfolio />
-        <ContactSection />
         <ContactForm />
+        <ContactSection />
       </main>
 
       <Footer />

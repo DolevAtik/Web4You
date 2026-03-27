@@ -8,7 +8,7 @@ const SECTION_IDS = ['benefits', 'process', 'portfolio', 'contact-form', 'contac
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const activeSection           = useActiveSection(SECTION_IDS)
+  const activeSection = useActiveSection(SECTION_IDS)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)
@@ -27,7 +27,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex items-center gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-4">
 
         {/* ── Logo ── */}
         <motion.a
@@ -36,14 +36,14 @@ export default function Navbar() {
           whileTap={{ scale: 0.96 }}
           className="shrink-0"
         >
-          <LogoMark className="text-base sm:text-xl md:text-2xl" />
+          <LogoMark className="text-sm sm:text-base md:text-lg" />
         </motion.a>
 
-        {/* ── Nav links — spread across remaining space ── */}
-        <div className="flex-1 flex items-center justify-around">
+        {/* ── Nav links — all visible ── */}
+        <div className="flex items-center gap-1 sm:gap-2 md:gap-4 overflow-x-auto scrollbar-none">
           {navLinks.map((link) => {
             const sectionId = link.href.startsWith('#') ? link.href.slice(1) : null
-            const active    = !!(sectionId && activeSection === sectionId)
+            const active = !!(sectionId && activeSection === sectionId)
 
             return (
               <a
@@ -52,9 +52,9 @@ export default function Navbar() {
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
                 className={`
-                  relative text-[10px] sm:text-xs md:text-sm
+                  relative text-[9px] sm:text-[10px] md:text-xs lg:text-sm
                   font-semibold font-assistant whitespace-nowrap
-                  px-2 sm:px-3 py-1.5 rounded-lg
+                  px-1.5 sm:px-2.5 md:px-3 py-1 rounded-lg
                   transition-all duration-200
                   ${link.highlight
                     ? active

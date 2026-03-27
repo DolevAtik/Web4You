@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, MessageCircle } from 'lucide-react'
 import { contact, hero } from '../../data/content'
+import LogoMark from '../LogoMark'
 
 // ── Typewriter ──────────────────────────────────────────────
 const STRINGS = ['שמביא לקוחות', 'שעובד בשבילך', 'שממיר מבקרים', 'שגדל איתך']
@@ -103,9 +104,7 @@ export default function Hero() {
       >
         {/* Terminal badge */}
         <motion.div variants={item} className="flex justify-center mb-8">
-          <span className="font-space-mono text-xs text-teal-400 border border-teal-500/30 bg-teal-500/[0.08] px-4 py-2 rounded-full tracking-widest">
-            // web4you.studio
-          </span>
+          <LogoMark className="text-2xl sm:text-3xl md:text-4xl" />
         </motion.div>
 
         {/* Main headline */}

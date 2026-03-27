@@ -29,6 +29,7 @@ export const navLinks = [
   { label: "יתרונות", href: "#benefits" },
   { label: "תהליך", href: "#process" },
   { label: "עבודות שלנו", href: "#portfolio" },
+  { label: "יש שאלות?", href: "#contact" },
   {
     label: "השאר פרטים",
     href: "#contact-form",
@@ -140,6 +141,24 @@ export const portfolio = {
   },
   items: [
     {
+      id: "web4you",
+      title: "Web4You",
+      description:
+        "אתר חברתי עם עיצוב יוקרתי שמביא לקוחות בעזרת סטוריים של הצלחה. טכנולוגיות מתקדמות וממיר גבוה של ביקורים ללידים.",
+      image: "/images/web4you.png",
+      url: "https://dolevatik.github.io/Web4You/",
+      tag: "שירותים מקצועיים",
+    },
+    {
+      id: "tomer-portfolio",
+      title: "Tomer Portfolio",
+      description:
+        "תיקיית עבודות של מפתח עם טכנולוגיות עדכניות. משדרת מקצועיות וניסיון דרך אתרים יוקרתיים ומתקדמים.",
+      image: "/images/tomerweb.png",
+      url: "https://tomernado.github.io/tomer-portfolio/",
+      tag: "פורטפוליו",
+    },
+    {
       id: "liel-edri-baking",
       title: "Liel Edri Baking",
       description:
@@ -247,6 +266,24 @@ export const contactSection = {
       display: contact.email,
       href: contact.emailHref,
     },
+    {
+      id: "phone2",
+      icon: "Phone",
+      color: "blue",
+      title: "טלפון (Tomer)",
+      description: "דברו ישירות עם Tomer",
+      display: contact.phone2,
+      href: contact.phone2Href,
+    },
+    {
+      id: "email2",
+      icon: "Mail",
+      color: "teal",
+      title: 'דוא"ל (Tomer)',
+      description: "דוא"ל של Tomer",
+      display: contact.email2,
+      href: contact.email2Href,
+    },
   ],
 };
 
@@ -262,6 +299,9 @@ export const footer = {
   ],
   contactLinks: [
     { label: contact.phone, href: contact.phoneHref },
+    { label: contact.phone2, href: contact.phone2Href },
     { label: contact.email, href: contact.emailHref },
+    { label: contact.email2, href: contact.email2Href },
+    { label: "Tomer Portfolio", href: "https://tomernado.github.io/tomer-portfolio/", external: true },
   ],
 };
