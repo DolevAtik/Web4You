@@ -141,8 +141,6 @@ export default function Hero() {
         >
           <motion.a
             href={hero.ctaPrimary.href}
-            target="_blank"
-            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             className="group flex items-center gap-3 bg-gradient-to-l from-teal-500 to-teal-400 hover:from-teal-400 hover:to-teal-300 px-8 py-4 rounded-xl font-rajdhani font-bold text-lg text-white shadow-2xl shadow-teal-500/25 transition-all duration-300"
