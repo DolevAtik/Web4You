@@ -144,21 +144,13 @@ export const portfolio = {
     external: false,
   },
   items: [
-    {
-      id: "tomer-portfolio",
-      title: "Tomer Portfolio",
-      description:
-        "תיקיית עבודות של מפתח עם טכנולוגיות עדכניות. משדרת מקצועיות וניסיון דרך אתרים יוקרתיים ומתקדמים.",
-      image: "/Web4You/images/tomerweb.jpeg",
-      url: "https://tomernado.github.io/tomer-portfolio/",
-      tag: "פורטפוליו",
-    },
+
     {
       id: "liel-edri-baking",
       title: "Liel Edri Baking",
       description:
         "עיצוב יוקרתי לחברת אפיה מקצועית. מראה טוב וממיר גבוה של לקוחות חדשים.",
-      image: "/Web4You/images/liel-edri-baking.png",
+      image: "images/liel-edri-baking.png",
       url: "https://dolevatik.github.io/Liel-Edri-Baking/",
       tag: "קייטרינג ואפיה",
     },
@@ -167,7 +159,7 @@ export const portfolio = {
       title: "After Taste | שף פרטי",
       description:
         "חוויית שף פרטי ואירוח קולינרי בהתאמה אישית לאירועים מיוחדים, הכוללת תפריט שנבנה סביבכם ותשומת לב לפרטים הקטנים.",
-      image: "/Web4You/images/after-taste.png",
+      image: "images/after-taste.png",
       url: "https://tomernado.github.io/after-taste/",
       tag: "שף פרטי",
     },
@@ -176,16 +168,25 @@ export const portfolio = {
       title: "LITAL KITCHEN",
       description:
         "קטלוג מוצרים מודרני למטבח עם עיצוב מנומק. חוויה קנייה חלקה וייצוג בו-זמני של הסחורה.",
-      image: "/Web4You/images/lital-kitchen.png",
+      image: "images/lital-kitchen.png",
       url: "https://dolevatik.github.io/LITAL-KITCHEN/",
       tag: "מסחר אלקטרוני",
+    },
+    {
+      id: "tomer-portfolio",
+      title: "Tomer Portfolio",
+      description:
+        "תיקיית עבודות של מפתח עם טכנולוגיות עדכניות. משדרת מקצועיות וניסיון דרך אתרים יוקרתיים ומתקדמים.",
+      image: "images/tomerweb.jpeg",
+      url: "https://tomernado.github.io/tomer-portfolio/",
+      tag: "פורטפוליו",
     },
     {
       id: "or-levy",
       title: "Or Levy Finance",
       description:
         "פתרון ניהול כספים מקצועי וממוכן. ממשק אינטואיטיבי עם דיזיין מודרני ומעטפת עסק בטוחה.",
-      image: "/Web4You/images/or-levy.png",
+      image: "images/or-levy.png",
       url: "https://orlevy-finance.vercel.app/",
       tag: "פיננסים",
     },
@@ -194,7 +195,7 @@ export const portfolio = {
       title: "איתי יצחקי - מנחה אירועים",
       description:
         "הנחיית אירועים מקצועית, ייחודית ומרגשת שהופכת כל אירוע לחוויה בלתי נשכחת עם אנרגיות גבוהות והתאמה לקהל.",
-      image: "/Web4You/images/itay-izchaki.png",
+      image: "images/itay-izchaki.png",
       url: "https://tomernado.github.io/landing-page-Itay/",
       tag: "אירועים",
     },
@@ -203,7 +204,7 @@ export const portfolio = {
       title: "DL Baloons",
       description:
         "אתר מכירות בלונים יוקרתיים עם עיצוב מודרני. מאוד יעיל בהגברת ההזמנות ויצירת קשר עם לקוחות.",
-      image: "/Web4You/images/dl-baloons.png",
+      image: "images/dl-baloons.png",
       url: "https://dolevatik.github.io/DL-Baloons/",
       tag: "מכירות",
     },
@@ -212,7 +213,7 @@ export const portfolio = {
       title: "MentConnect",
       description:
         "פלטפורמה מתקדמת לחיבור בין מנטורים ומחפשים עצה. ממשק ידידותי ופונקציונליות חזקה לתקשורת יעילה.",
-      image: "/Web4You/images/mentconnect.png",
+      image: "images/mentconnect.png",
       url: "https://mentconnect.vercel.app/",
       tag: "פלטפורמה",
     },
@@ -221,7 +222,7 @@ export const portfolio = {
       title: "עמית הדברות",
       description:
         "שירותי הדברה מקצועיים לתיקנים, מכרסמים, פרעושים ונמלים עם 15 שנות ניסיון והיתר מהמשרד להגנת הסביבה.",
-      image: "/Web4You/images/amit-hadbarot.png",
+      image: "images/amit-hadbarot.png",
       url: "https://tomernado.github.io/amit-hadbarot/",
       tag: "שירותים מקצועיים",
     },
