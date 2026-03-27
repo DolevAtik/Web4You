@@ -149,7 +149,7 @@ export const portfolio = {
       id: "liel-edri-baking",
       title: "Liel Edri Baking",
       description:
-        "עיצוב יוקרתי לחברת אפיה מקצועית. מראה טוב וממיר גבוה של לקוחות חדשים.",
+        "עיצוב יוקרתי נקי לחברת אפיה מקצועית עם דגש על חווית משתמש והגדלת המכירות.",
       image: "images/liel-edri-baking.png",
       url: "https://dolevatik.github.io/Liel-Edri-Baking/",
       tag: "קייטרינג ואפיה",
@@ -158,7 +158,7 @@ export const portfolio = {
       id: "after-taste",
       title: "After Taste | שף פרטי",
       description:
-        "חוויית שף פרטי ואירוח קולינרי בהתאמה אישית לאירועים מיוחדים, הכוללת תפריט שנבנה סביבכם ותשומת לב לפרטים הקטנים.",
+        "אתר תדמית לשף פרטי להצגת תפריטים ואירועים ",
       image: "images/after-taste.png",
       url: "https://tomernado.github.io/after-taste/",
       tag: "שף פרטי",
@@ -167,7 +167,7 @@ export const portfolio = {
       id: "lital-kitchen",
       title: "LITAL KITCHEN",
       description:
-        "קטלוג מוצרים מודרני למטבח עם עיצוב מנומק. חוויה קנייה חלקה וייצוג בו-זמני של הסחורה.",
+        "קטלוג מוצרים מודרני למטבח ביתי עם עיצוב מנומק. חוויה קנייה חלקה המשפרת את חווית המשתמש והגדלת המכירות.",
       image: "images/lital-kitchen.png",
       url: "https://dolevatik.github.io/LITAL-KITCHEN/",
       tag: "מסחר אלקטרוני",
@@ -231,7 +231,7 @@ export const portfolio = {
 
 // ── Contact Section ──────────────────────────────────────────
 export const contactSection = {
-  sectionTitle: "יש שאלות?",
+  sectionTitle: "צור קשר",
   sectionSubtitle: "בואו נדבר ישירות - לא בטופס, בוואטסאפ, בטלפון או במיל",
   channels: [
     {
@@ -249,7 +249,7 @@ export const contactSection = {
       icon: "Phone",
       color: "blue",
       title: "טלפון",
-      description: "דברו ישירות עם אדם",
+      description: "דברו ישירות עם הצוות שלנו",
       display: contact.phone,
       href: contact.phoneHref,
     },
