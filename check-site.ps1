@@ -1,17 +1,24 @@
 try {
     $response = Invoke-WebRequest -Uri 'https://dolevatik.github.io/Web4You/' -UseBasicParsing -TimeoutSec 10
-    Write-Host "Site is accessible!" 
-    Write-Host "Status Code: $($response.StatusCode)"
-    Write-Host "Content Length: $($response.Content.Length) bytes"
+    $content = $response.Content
     
-    if ($response.Content -match "Web4You") {
-        Write-Host "Site contains expected content"
+    Write-Host "Status: $($response.StatusCode)"
+    Write-Host "Size: $($content.Length) bytes"
+    
+    if ($content -match "src/main") { 
+        Write-Host "Using DEV version (src/main.jsx)" 
+    } elseif ($content -match "/Web4You/assets") {
+        Write-Host "Using BUILT version (/Web4You/assets)"
     }
-    if ($response.Content -match "DOCTYPE") {
-        Write-Host "Valid HTML detected"
+    
+    if ($content -match "DOCTYPE") { 
+        Write-Host "HTML is valid" 
     }
+    
+    Write-Host ""
+    Write-Host "First 600 chars:"
+    Write-Host $content.Substring(0, [Math]::Min(600, $content.Length))
 }
 catch {
-    Write-Host "Error accessing site:"
-    Write-Host $_.Exception.Message
+    Write-Host "Error: $($_.Exception.Message)"
 }
