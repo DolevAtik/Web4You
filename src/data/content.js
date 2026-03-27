@@ -149,7 +149,7 @@ export const portfolio = {
       title: "Web4You",
       description:
         "אתר חברתי עם עיצוב יוקרתי שמביא לקוחות בעזרת סטוריים של הצלחה. טכנולוגיות מתקדמות וממיר גבוה של ביקורים ללידים.",
-      image: "/images/web4you.png",
+      image: "/images/web4you.jpeg",
       url: "https://dolevatik.github.io/Web4You/",
       tag: "שירותים מקצועיים",
     },
@@ -158,7 +158,7 @@ export const portfolio = {
       title: "Tomer Portfolio",
       description:
         "תיקיית עבודות של מפתח עם טכנולוגיות עדכניות. משדרת מקצועיות וניסיון דרך אתרים יוקרתיים ומתקדמים.",
-      image: "/images/tomerweb.png",
+      image: "/images/tomerweb.jpeg",
       url: "https://tomernado.github.io/tomer-portfolio/",
       tag: "פורטפוליו",
     },
