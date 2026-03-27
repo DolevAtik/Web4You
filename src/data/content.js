@@ -13,8 +13,12 @@ export const brand = {
 export const contact = {
   phone: "050-9237173",
   phoneHref: "tel:+972509237173",
+  phone2: "054-3210990",
+  phone2Href: "tel:+972543210990",
   email: "dolev5454@gmail.com",
   emailHref: "mailto:dolev5454@gmail.com",
+  email2: "tomernado1233@gmail.com",
+  email2Href: "mailto:tomernado1233@gmail.com",
   whatsapp: {
     number: "972509237173",
     defaultMessage: "היי, אני רוצה לבנות אתר שמביא לקוחות!",
