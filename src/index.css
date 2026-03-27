@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Assistant', sans-serif;
+    background-color: #020617; /* slate-950 */
+    color: #f1f5f9;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(20, 184, 166, 0.25);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 184, 166, 0.5);
+  }
+}
+
+/* ── Utilities ─────────────────────────────────────────────── */
+@layer utilities {
+  /* Dot-grid background */
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  /* Line-grid background */
+  .bg-line-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Section top divider */
+  .section-divider {
+    position: relative;
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(20, 184, 166, 0.2),
+      rgba(59, 130, 246, 0.15),
+      transparent
+    );
+  }
+
+  /* Teal glow on text */
+  .text-glow-teal {
+    text-shadow:
+      0 0 30px rgba(20, 184, 166, 0.45),
+      0 0 60px rgba(20, 184, 166, 0.2);
+  }
+
+  /* Blue glow on text */
+  .text-glow-blue {
+    text-shadow:
+      0 0 30px rgba(59, 130, 246, 0.4),
+      0 0 60px rgba(59, 130, 246, 0.15);
+  }
+}
+
+/* ── CRT Scanlines Overlay ─────────────────────────────────── */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.022) 2px,
+    rgba(0, 0, 0, 0.022) 4px
+  );
+  animation: crt-flicker 9s ease-in-out infinite;
+}
+
+@keyframes crt-flicker {
+  0%,  93%, 100% { opacity: 1; }
+  94%            { opacity: 0.93; }
+  95%            { opacity: 1; }
+  96%            { opacity: 0.95; }
+  97%            { opacity: 1; }
+}
+
+/* ── Logo "4" glow pulse ───────────────────────────────────── */
+@keyframes logo-glow {
+  0%, 100% {
+    text-shadow:
+      0 0  8px rgba(20, 184, 166, 0.7),
+      0 0 18px rgba(20, 184, 166, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(20, 184, 166, 1),
+      0 0 32px rgba(20, 184, 166, 0.65),
+      0 0 55px rgba(20, 184, 166, 0.25);
+  }
+}
+.logo-four { animation: logo-glow 2.6s ease-in-out infinite; }
+
+/* ── Carousel scrollbar hide ───────────────────────────────── */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar { display: none; }

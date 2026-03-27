@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web4You - טופס אפיון עסקי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0f172a',
+                        'dark-card': '#1e293b'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+        }
+
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .btn-glow:hover::before {
+            width: 300px;
+            height: 300px;
+            animation: ripple 0.6s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5);
+            border-color: rgb(16, 185, 129);
+        }
+
+        .form-input {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgb(16, 185, 129);
+        }
+
+        .success-animation {
+            animation: successPop 0.5s ease-out;
+        }
+
+        @keyframes successPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-100 overflow-x-hidden">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 right-0 left-0 z-40 bg-slate-900/80 backdrop-blur-md border-b border-gray-700/30">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold bg-gradient-to-l from-emerald-500 to-blue-500 bg-clip-text text-transparent">
+                Web4You
+            </a>
+            <div class="hidden md:flex gap-8">
+                <a href="index.html" class="text-gray-300 hover:text-emerald-500 transition-colors">דף הבית</a>
+                <a href="index.html#benefits" class="text-gray-300 hover:text-emerald-500 transition-colors">יתרונות</a>
+                <a href="index.html#portfolio" class="text-gray-300 hover:text-emerald-500 transition-colors">עבודות שלנו</a>
+            </div>
+            <a href="index.html" class="bg-emerald-500/10 text-emerald-500 border border-emerald-500/50 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-emerald-500 hover:text-white transition-colors">
+                חזרה לבית
+            </a>
+        </div>
+    </nav>
+
+    <!-- Smart Form Section -->
+    <section class="min-h-screen py-32 px-6 gradient-bg">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-bold text-center mb-6 animate-fade-in">בואו נבנה לך אתר</h1>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+                מלא את טופס האיפיון הזה בשקט, בקצב שלך. כל תשובה תעזור לנו להבין בדיוק מה העסק שלך צריך.
+            </p>
+
+            <form id="specificationForm" class="bg-dark-card border border-gray-700/50 rounded-xl p-8 md:p-12 animate-slide-up" style="animation-delay: 0.4s;">
+                <!-- Contact Information -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-500">📱 פרטי יצירת קשר</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">שם מלא *</label>
+                        <input type="text" name="fullName" required class="w-full form-input px-4 py-3 rounded-lg" placeholder="לדוגמה: דוד כהן">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">מספר טלפון *</label>
+                            <input type="tel" name="phone" required class="w-full form-input px-4 py-3 rounded-lg" placeholder="050-1234567">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">אימייל *</label>
+                            <input type="email" name="email" required class="w-full form-input px-4 py-3 rounded-lg" placeholder="david@example.com">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">כתובת (אופציונלי)</label>
+                        <input type="text" name="address" class="w-full form-input px-4 py-3 rounded-lg" placeholder="תל אביב, ישראל">
+                    </div>
+                </div>
+
+                <!-- Business Information -->
+                <div class="mb-8 pt-8 border-t border-gray-700/50">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-500">🏢 פרטי העסק</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">שם העסק *</label>
+                        <input type="text" name="businessName" required class="w-full form-input px-4 py-3 rounded-lg" placeholder="לדוגמה: Delicious Bakery">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">מה העסק שלך עושה? (תיאור קצר) *</label>
+                        <textarea name="businessDescription" required class="w-full form-input px-4 py-3 rounded-lg h-24" placeholder="לדוגמה: אנחנו עוסקים בהשכרת בלונים וקישוטי יום הולדת עם עיצוב מקורי..."></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">קישור לאינסטגרם (אופציונלי)</label>
+                        <input type="url" name="instagram" class="w-full form-input px-4 py-3 rounded-lg" placeholder="https://instagram.com/yourname">
+                    </div>
+                </div>
+
+                <!-- Website Goals -->
+                <div class="mb-8 pt-8 border-t border-gray-700/50">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-500">🎯 מטרת האתר</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-3">מה המטרה הראשית של האתר? *</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="radio" name="goalType" value="lead_generation" required class="ml-3">
+                                <span>צבירת לידים / הזמנות (הטוב ביותר)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="goalType" value="ecommerce" class="ml-3">
+                                <span>מכירות אונליין (חנות)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="goalType" value="info" class="ml-3">
+                                <span>הנחיה וחינוך</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="goalType" value="portfolio" class="ml-3">
+                                <span>תיק עבודות / פורטפוליו</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="goalType" value="other" class="ml-3">
+                                <span>אחר</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Preferences -->
+                <div class="mb-8 pt-8 border-t border-gray-700/50">
+                    <h3 class="text-2xl font-bold mb-6 text-blue-500">🎨 עיצוב וסגנון</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-3">איזה סגנון אתה רוצה? *</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="radio" name="designStyle" value="luxury" required class="ml-3">
+                                <span>יוקרתי (עדין, שחור, זהב)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="designStyle" value="modern" class="ml-3">
+                                <span>מודרני וצעיר (צבעים חיים, פשוט)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="designStyle" value="minimal" class="ml-3">
+                                <span>מינימלי (לבן, אפור, כחול)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="designStyle" value="colorful" class="ml-3">
+                                <span>צבעוני וחיוני</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="designStyle" value="corporate" class="ml-3">
+                                <span>תאגידי (מקצועי, רציני)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-2">צבעים מועדפים</label>
+                        <input type="text" name="colors" class="w-full form-input px-4 py-3 rounded-lg" placeholder="לדוגמה: כחול וזהב, ירוק ולבן...">
+                    </div>
+                </div>
+
+                <!-- Pages and Features -->
+                <div class="mb-8 pt-8 border-t border-gray-700/50">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-500">📄 עמודים ותכונות</h3>
+                    
+                    <label class="block text-sm font-semibold mb-3">אילו עמודים צריכים באתר? (בחר את הרלוונטיים) *</label>
+                    <div class="space-y-3 mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="pages" value="home" checked class="ml-3">
+                            <span>דף בית</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="pages" value="about" class="ml-3">
+                            <span>אודות</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="pages" value="services" class="ml-3">
+                            <span>שירותים</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="pages" value="portfolio" class="ml-3">
+                            <span>עבודות / פורטפוליו</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="pages" value="contact" class="ml-3">
+                            <span>צרו קשר</span>
+                        </label>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold mb-3">יש לך לוגו? *</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center">
+                                <input type="radio" name="hasLogo" value="yes" required class="ml-3">
+                                <span>כן, יש לי לוגו</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="hasLogo" value="no" class="ml-3">
+                                <span>לא, אצטרך לבנות אחד</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="pt-8 border-t border-gray-700/50">
+                    <button type="submit" class="btn-glow w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 px-8 py-4 rounded-lg font-bold text-lg relative z-10 transition-all duration-300 transform hover:scale-105 text-white">
+                        שלח את הטופס - נחזור אליך אקסטרה מהר 📧
+                    </button>
+                    <p class="text-center text-gray-500 text-sm mt-4">
+                        *שדות חובה. אנחנו שומרים על הפרטיות שלך בקנאות.
+                    </p>
+                </div>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden mt-8 p-6 bg-emerald-500/20 border border-emerald-500/50 rounded-lg success-animation">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-bold text-emerald-400">הטופס נשלח בהצלחה! ✨</h4>
+                            <p class="text-emerald-300 text-sm">אנחנו בדרך להכין לך את האתר המושלם. נחזור אליך בהקדם.</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-gray-700/30 py-12 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="text-2xl font-bold bg-gradient-to-l from-emerald-500 to-blue-500 bg-clip-text text-transparent mb-4">
+                Web4You
+            </div>
+            <p class="text-gray-500 text-sm">© 2024 Web4You. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission logic
+        document.getElementById('specificationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.textContent = 'שולח...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const data = {
+                fullName: formData.get('fullName'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                businessName: formData.get('businessName'),
+                businessDescription: formData.get('businessDescription'),
+                goalType: formData.get('goalType'),
+                designStyle: formData.get('designStyle'),
+                colors: formData.get('colors'),
+                pages: Array.from(formData.getAll('pages')).join(', '),
+                hasLogo: formData.get('hasLogo')
+            };
+
+            try {
+                // Send to FormSubmit.co
+                const formDataToSend = new FormData();
+                formDataToSend.append('_subject', `טופס אפיון חדש - ${data.businessName}`);
+                formDataToSend.append('_captcha', 'false');
+                formDataToSend.append('_autoresponse', `שלום ${data.fullName}, קיבלנו את הטופס שלך ונחזור אליך בקרוב!`);
+                Object.keys(data).forEach(key => formDataToSend.append(key, data[key]));
+
+                await fetch('https://formsubmit.co/dolev5454@gmail.com', {
+                    method: 'POST',
+                    body: formDataToSend
+                });
+
+                // Show success
+                form.style.display = 'none';
+                document.getElementById('successMessage').classList.remove('hidden');
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Open WhatsApp
+                setTimeout(() => {
+                    window.open(`https://wa.me/972509237173?text=היי%2C%20שלחתי%20את%20הטופס%20שלי%20על%20שם%20${encodeURIComponent(data.fullName)}%20עבור%20${encodeURIComponent(data.businessName)}`, '_blank');
+                }, 1500);
+            } catch (error) {
+                console.error('Error:', error);
+                form.style.display = 'none';
+                document.getElementById('successMessage').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
