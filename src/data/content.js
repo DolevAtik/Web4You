@@ -33,7 +33,6 @@ export const navLinks = [
   { label: "יתרונות", href: "#benefits" },
   { label: "תהליך", href: "#process" },
   { label: "עבודות שלנו", href: "#portfolio" },
-  { label: "צור קשר", href: "#contact" },
   {
     label: "השאר פרטים",
     href: "#contact-form",
