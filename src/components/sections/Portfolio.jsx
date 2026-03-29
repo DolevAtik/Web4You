@@ -96,18 +96,65 @@ function StickyCard({ item, index, totalCards, scrollYProgress }) {
   )
 }
 
+// ── CTA sticky card ───────────────────────────────────────────
+function CTACard({ index }) {
+  const { cta } = portfolio
+  return (
+    <div style={{ height: '100vh', position: 'relative', zIndex: (index + 1) * 10 }}>
+      <div className="sticky top-[10vh] h-[80vh] rounded-[2rem] bg-gradient-to-br from-teal-500/[0.07] to-blue-500/[0.07] backdrop-blur-xl border border-dashed border-teal-500/30 flex flex-col items-center justify-center text-center p-10">
+        <motion.div
+          animate={{ y: [0, -9, 0] }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+          className="will-change-transform text-5xl mb-6"
+        >
+          🚀
+        </motion.div>
+        <p className="text-gray-400 mb-6 font-assistant text-lg">{cta.placeholder}</p>
+        <a
+          href={cta.href}
+          className="font-rajdhani font-bold text-teal-400 hover:text-teal-300 text-xl transition-colors hover:underline underline-offset-4"
+        >
+          {cta.label}
+        </a>
+      </div>
+    </div>
+  )
+}
+
 export default function Portfolio() {
   const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   })
-  const totalCards = portfolio.items.length + 1
+  const totalCards = portfolio.items.length + 1 // +1 for CTA card
 
   return (
     <section id="portfolio" className="section-divider bg-dot-grid">
+      {/* Header */}
+      <div className="py-28 max-w-6xl mx-auto px-6">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 28, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.15, margin: '-50px' }}
+          transition={{ duration: 0.65 }}
+        >
+          <span className="font-space-mono text-xs text-teal-400 tracking-widest mb-4 block">
+            // our.work
+          </span>
+          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
+            {portfolio.sectionTitle}
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto font-assistant text-lg leading-relaxed">
+            {portfolio.sectionSubtitle}
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Sticky stack */}
       <div ref={containerRef} className="max-w-5xl mx-auto px-4 md:px-6">
-        {portfolio.items.slice(0, 1).map((item, i) => (
+        {portfolio.items.map((item, i) => (
           <StickyCard
             key={item.id}
             item={item}
@@ -116,7 +163,11 @@ export default function Portfolio() {
             scrollYProgress={scrollYProgress}
           />
         ))}
+        <CTACard index={portfolio.items.length} />
       </div>
+
+      {/* Bottom breathing room */}
+      <div className="h-24" />
     </section>
   )
 }
