@@ -15,7 +15,7 @@ export default function WhatsAppButton() {
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.93 }}
     >
-      <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40">
+      <div className="w-12 h-12 bg-gradient-to-br from-emerald-500/60 to-emerald-600/60 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/20 opacity-50 hover:opacity-90 transition-opacity duration-300">
         {/* Official WhatsApp icon path */}
         <svg
           className="w-7 h-7 text-white"

@@ -35,9 +35,6 @@ export default function Process() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <span className="font-space-mono text-xs text-blue-400 tracking-widest mb-4 block">
-            // how.it.works
-          </span>
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white">
             {processData.sectionTitle}
           </h2>

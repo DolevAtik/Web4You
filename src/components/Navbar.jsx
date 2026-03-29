@@ -52,7 +52,7 @@ export default function Navbar() {
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
                 className={`
-                  relative text-[9px] sm:text-[10px] md:text-xs lg:text-sm
+                  relative text-[11px] sm:text-xs md:text-sm lg:text-sm
                   font-semibold font-assistant whitespace-nowrap
                   px-1.5 sm:px-2.5 md:px-3 py-1 rounded-lg
                   transition-all duration-200

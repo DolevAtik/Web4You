@@ -26,8 +26,8 @@ const GOALS = [
 
 const INPUT_CLS = `
   w-full bg-white/[0.04] border border-white/10 focus:border-teal-500/60
-  rounded-xl px-4 py-3 text-white text-sm font-assistant
-  placeholder:text-gray-600 outline-none transition-all duration-200
+  rounded-xl px-4 py-3 text-white text-base font-assistant
+  placeholder:text-gray-500 outline-none transition-all duration-200
   focus:bg-white/[0.07] focus:shadow-[0_0_0_1px_rgba(20,184,166,0.25)]
 `
 
@@ -80,9 +80,6 @@ export default function ContactForm() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <span className="font-space-mono text-xs text-teal-400 tracking-widest mb-4 block">
-            // start.now
-          </span>
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
             השאר פרטים
           </h2>
@@ -151,7 +148,7 @@ export default function ContactForm() {
                 {/* Row: Name + Phone */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-400 mb-1.5 font-assistant">שם מלא *</label>
+                    <label className="block text-sm text-gray-400 mb-1.5 font-assistant">שם מלא *</label>
                     <input
                       name="name"
                       required
@@ -187,7 +184,7 @@ export default function ContactForm() {
                 {/* Row: Business type + Goal */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs text-gray-400 mb-1.5 font-assistant">סוג העסק</label>
+                    <label className="block text-sm text-gray-400 mb-1.5 font-assistant">סוג העסק</label>
                     <select name="business_type" className={SELECT_CLS} defaultValue="">
                       <option value="" disabled className="bg-slate-900">בחר סוג עסק</option>
                       {BUSINESS_TYPES.map((t) => (
@@ -196,7 +193,7 @@ export default function ContactForm() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs text-gray-400 mb-1.5 font-assistant">מה אתה מחפש?</label>
+                    <label className="block text-sm text-gray-400 mb-1.5 font-assistant">מה אתה מחפש?</label>
                     <select name="goal" className={SELECT_CLS} defaultValue="">
                       <option value="" disabled className="bg-slate-900">סוג האתר</option>
                       {GOALS.map((g) => (

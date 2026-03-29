@@ -1,25 +1,46 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { BarChart3, Globe, Paintbrush, Zap } from 'lucide-react'
+import { BarChart3, DollarSign, Globe, Paintbrush, Zap } from 'lucide-react'
 import { benefits } from '../../data/content'
 
 // Map icon string names → Lucide components
-const ICON_MAP = { Zap, Paintbrush, Globe, BarChart3 }
+const ICON_MAP = { Zap, Paintbrush, Globe, BarChart3, DollarSign }
 
 const COLOR = {
   teal: {
-    iconBg:   'bg-teal-500/[0.12]',
+    iconBg:   'bg-teal-500/[0.15]',
     icon:     'text-teal-400',
     border:   'border-teal-500/30',
     hover:    'hover:border-teal-400/50',
     glow:     'hover:shadow-teal-500/10',
   },
   blue: {
-    iconBg:   'bg-blue-500/[0.12]',
+    iconBg:   'bg-blue-500/[0.15]',
     icon:     'text-blue-400',
     border:   'border-blue-500/30',
     hover:    'hover:border-blue-400/50',
     glow:     'hover:shadow-blue-500/10',
+  },
+  violet: {
+    iconBg:   'bg-violet-500/[0.15]',
+    icon:     'text-violet-400',
+    border:   'border-violet-500/30',
+    hover:    'hover:border-violet-400/50',
+    glow:     'hover:shadow-violet-500/10',
+  },
+  orange: {
+    iconBg:   'bg-orange-500/[0.15]',
+    icon:     'text-orange-400',
+    border:   'border-orange-500/30',
+    hover:    'hover:border-orange-400/50',
+    glow:     'hover:shadow-orange-500/10',
+  },
+  emerald: {
+    iconBg:   'bg-emerald-500/[0.15]',
+    icon:     'text-emerald-400',
+    border:   'border-emerald-500/30',
+    hover:    'hover:border-emerald-400/50',
+    glow:     'hover:shadow-emerald-500/10',
   },
 }
 
@@ -47,9 +68,6 @@ export default function Benefits() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <span className="font-space-mono text-xs text-teal-400 tracking-widest mb-4 block">
-            // why.us
-          </span>
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
             {benefits.sectionTitle}
           </h2>
@@ -59,7 +77,7 @@ export default function Benefits() {
         </motion.div>
 
         {/* ── Cards ── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
           {benefits.items.map((item, i) => {
             const Icon   = ICON_MAP[item.icon] ?? Zap
             const colors = COLOR[item.color]   ?? COLOR.teal
@@ -89,23 +107,23 @@ export default function Benefits() {
                       h-full group cursor-default
                       bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
                       border ${colors.border} ${colors.hover}
-                      rounded-2xl p-8
+                      rounded-2xl p-4 md:p-5
                       transition-all duration-300
                       shadow-xl ${colors.glow} hover:shadow-2xl
                     `}
                   >
                     {/* Icon */}
                     <div
-                      className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-10 h-10 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <Icon className={`w-6 h-6 ${colors.icon}`} strokeWidth={1.8} />
+                      <Icon className={`w-5 h-5 ${colors.icon}`} strokeWidth={1.8} />
                     </div>
 
                     {/* Text */}
-                    <h3 className="font-rajdhani font-bold text-xl text-white mb-3">
+                    <h3 className="font-rajdhani font-bold text-base md:text-lg text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-assistant text-sm leading-relaxed">
+                    <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </div>

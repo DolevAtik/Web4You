@@ -1,9 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Mail, MessageCircle, Phone } from 'lucide-react'
+import { Mail, MessageCircle, Phone, AtSign } from 'lucide-react'
 import { contactSection } from '../../data/content'
 
-const ICON_MAP = { MessageCircle, Phone, Mail }
+const ICON_MAP = { MessageCircle, Phone, Mail, AtSign }
 
 const COLOR = {
   teal: {
@@ -41,9 +41,6 @@ export default function ContactSection() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <span className="font-space-mono text-xs text-blue-400 tracking-widest mb-4 block">
-            // contact.us
-          </span>
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
             {contactSection.sectionTitle}
           </h2>
@@ -52,8 +49,8 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        {/* Channels — 2 cards centered */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
+        {/* Channels — centered */}
+        <div className="flex justify-center">
           {contactSection.channels.map((ch, i) => {
             const Icon   = ICON_MAP[ch.icon] ?? Mail
             const colors = COLOR[ch.color]   ?? COLOR.teal
@@ -66,7 +63,7 @@ export default function ContactSection() {
                 viewport={{ once: true, amount: 0.15, margin: '-50px' }}
                 transition={{ duration: 0.55, delay: i * 0.1 }}
                 className={`
-                  group flex-1 max-w-sm
+                  group w-full max-w-sm
                   bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
                   border ${colors.border}
                   rounded-2xl p-8

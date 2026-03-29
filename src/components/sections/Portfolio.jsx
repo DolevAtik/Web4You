@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import { motion, useMotionValue } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
 import { portfolio } from '../../data/content'
 
 // ── Glow palette ──────────────────────────────────────────────
@@ -29,7 +28,7 @@ const ACCENT_MAP = {
   'amit-hadbarot':    'green',
 }
 
-const SLOT_PX = 340 // must match the container slot height
+const SLOT_PX = 270 // must match the container slot height
 
 // ── Single sticky card ────────────────────────────────────────
 function StickyCard({ item, index, containerRef }) {
@@ -72,43 +71,27 @@ function StickyCard({ item, index, containerRef }) {
       className="sticky"
       style={{ top: `calc(10vh + ${index * 10}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
     >
-      <motion.div
+      <motion.a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
           opacity,
           scale,
           boxShadow: accent.shadow,
           border: `1px solid ${accent.border}`,
           transformOrigin: 'top center',
-          aspectRatio: '16 / 9',
+          aspectRatio: '3 / 2',
         }}
-        className="relative w-full rounded-2xl overflow-hidden"
+        className="relative block w-full rounded-2xl overflow-hidden cursor-pointer"
       >
-        {/* Project screenshot — fixed height, uniform across all cards */}
         <img
           src={item.image}
           alt={item.title}
           loading="lazy"
           className="w-full h-full object-cover object-center"
         />
-
-        {/* Gradient behind top-right button */}
-        <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-slate-950/70 to-transparent pointer-events-none z-10" />
-
-        {/* Visit site — top right, icon only */}
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-3 right-3 z-20 flex items-center justify-center w-9 h-9 rounded-full transition-opacity hover:opacity-80"
-          style={{
-            background: accent.tagBg,
-            color: accent.tagText,
-            border: `1px solid ${accent.border}`,
-          }}
-        >
-          <ExternalLink size={14} />
-        </a>
-      </motion.div>
+      </motion.a>
     </div>
   )
 }
@@ -161,9 +144,6 @@ export default function Portfolio() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <span className="font-space-mono text-xs text-teal-400 tracking-widest mb-4 block">
-            // our.work
-          </span>
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
             {portfolio.sectionTitle}
           </h2>
@@ -176,7 +156,7 @@ export default function Portfolio() {
       {/* Sticky stack — block layout, explicit height for reliable scroll tracking */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-5xl mx-auto px-4 md:px-6"
+        className="relative w-full max-w-5xl mx-auto px-12 md:px-24"
         style={{
           overflow: 'visible',
           height: `${(total + 1) * SLOT_PX}px`,
