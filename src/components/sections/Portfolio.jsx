@@ -30,6 +30,93 @@ const ACCENT_MAP = {
   'amit-hadbarot':    'green',
 }
 
+// ── Single sticky project card ────────────────────────────────
+function StickyCard({ item, index, totalCards, scrollYProgress }) {
+  const accentKey = ACCENT_MAP[item.id] ?? 'teal'
+  const accent = GLOW_MAP[accentKey]
+
+  const start = index / totalCards
+  const end = (index + 1) / totalCards
+  const scale = useTransform(scrollYProgress, [start, end], [1, 0.92])
+  const opacity = useTransform(scrollYProgress, [start, end], [1, 0.7])
+
+  return (
+    <div style={{ height: '100vh', position: 'relative', zIndex: (index + 1) * 10 }}>
+      <motion.div
+        style={{
+          scale,
+          opacity,
+          boxShadow: accent.shadow,
+          border: `1px solid ${accent.border}`,
+        }}
+        className="sticky top-[10vh] h-[80vh] rounded-[2rem] bg-slate-900/90 backdrop-blur-xl overflow-hidden flex flex-col md:flex-row"
+      >
+        {/* Text side — appears on the RIGHT in RTL (order-2 on mobile, order-1 on desktop) */}
+        <div className="flex flex-col justify-center p-8 md:p-12 md:flex-1 order-2 md:order-1">
+          <span
+            className="self-start text-[10px] font-space-mono px-2.5 py-1 rounded-full border mb-4"
+            style={{
+              background: accent.tagBg,
+              color: accent.tagText,
+              borderColor: accent.border,
+            }}
+          >
+            {item.tag}
+          </span>
+          <h3 className="font-rajdhani font-bold text-2xl md:text-4xl text-white mb-4 leading-tight">
+            {item.title}
+          </h3>
+          <p className="text-gray-400 font-assistant text-sm md:text-base leading-relaxed mb-6">
+            {item.description}
+          </p>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start flex items-center gap-2 text-sm font-space-mono transition-opacity hover:opacity-80"
+            style={{ color: accent.tagText }}
+          >
+            <ExternalLink size={14} /> צפה באתר
+          </a>
+        </div>
+
+        {/* Image side — appears on the LEFT in RTL (order-1 on mobile, order-2 on desktop) */}
+        <div className="relative h-[40%] md:h-full md:flex-1 order-1 md:order-2 overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            loading="lazy"
+            className="w-full h-full object-cover object-top"
+          />
+          {/* subtle gradient blending image into card background */}
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-slate-900/30 to-transparent" />
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
 export default function Portfolio() {
-  return <section id="portfolio"><p className="text-white p-10">placeholder</p></section>
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  })
+  const totalCards = portfolio.items.length + 1
+
+  return (
+    <section id="portfolio" className="section-divider bg-dot-grid">
+      <div ref={containerRef} className="max-w-5xl mx-auto px-4 md:px-6">
+        {portfolio.items.slice(0, 1).map((item, i) => (
+          <StickyCard
+            key={item.id}
+            item={item}
+            index={i}
+            totalCards={totalCards}
+            scrollYProgress={scrollYProgress}
+          />
+        ))}
+      </div>
+    </section>
+  )
 }
