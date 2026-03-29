@@ -13,7 +13,7 @@ export default function App() {
   return (
     <div
       dir="rtl"
-      className="bg-slate-950 text-gray-100 overflow-x-hidden font-assistant relative"
+      className="bg-slate-950 text-gray-100 [overflow-x:clip] font-assistant relative"
     >
       {/* CRT Scanlines Overlay */}
       <div className="crt-overlay" aria-hidden="true" />

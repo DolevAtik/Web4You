@@ -12,6 +12,8 @@ const COLOR = {
     border:  'border-teal-500/25',
     hover:   'hover:border-teal-400/55',
     display: 'text-teal-400',
+    divider: 'border-teal-500/15',
+    labelBg: 'bg-teal-500/10 text-teal-400',
   },
   blue: {
     iconBg:  'bg-blue-500/[0.12]',
@@ -19,6 +21,8 @@ const COLOR = {
     border:  'border-blue-500/25',
     hover:   'hover:border-blue-400/55',
     display: 'text-blue-400',
+    divider: 'border-blue-500/15',
+    labelBg: 'bg-blue-500/10 text-blue-400',
   },
 }
 
@@ -48,48 +52,58 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        {/* Channels */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Channels — 2 cards centered */}
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
           {contactSection.channels.map((ch, i) => {
             const Icon   = ICON_MAP[ch.icon] ?? Mail
             const colors = COLOR[ch.color]   ?? COLOR.teal
 
             return (
-              <motion.a
+              <motion.div
                 key={ch.id}
-                href={ch.href}
-                target={ch.external ? '_blank' : undefined}
-                rel={ch.external ? 'noopener noreferrer' : undefined}
                 initial={{ opacity: 0, y: 36, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15, margin: '-50px' }}
                 transition={{ duration: 0.55, delay: i * 0.1 }}
-                whileHover={{ y: -6, scale: 1.02 }}
                 className={`
-                  group block
+                  group flex-1 max-w-sm
                   bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
-                  border ${colors.border} ${colors.hover}
+                  border ${colors.border}
                   rounded-2xl p-8
-                  transition-all duration-300
-                  shadow-lg hover:shadow-2xl
+                  shadow-lg
                 `}
               >
-                <div
-                  className={`w-16 h-16 ${colors.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300`}
-                >
+                <div className={`w-16 h-16 ${colors.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-5`}>
                   <Icon className={`w-8 h-8 ${colors.icon}`} strokeWidth={1.6} />
                 </div>
 
-                <h3 className="font-rajdhani font-bold text-xl text-white mb-2">
+                <h3 className="font-rajdhani font-bold text-xl text-white mb-1">
                   {ch.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 font-assistant">
+                <p className="text-gray-400 text-sm mb-5 font-assistant">
                   {ch.description}
                 </p>
-                <span className={`font-space-mono text-sm font-semibold ${colors.display}`}>
-                  {ch.display}
-                </span>
-              </motion.a>
+
+                {/* Two sub-links */}
+                <div className={`flex flex-col gap-3 border-t ${colors.divider} pt-4`}>
+                  {ch.items.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
+                      className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 hover:bg-white/5 transition-colors"
+                    >
+                      <span className={`text-xs font-space-mono px-2 py-0.5 rounded-full ${colors.labelBg}`}>
+                        {item.label}
+                      </span>
+                      <span className={`font-space-mono text-sm font-semibold ${colors.display} truncate`}>
+                        {item.display}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
             )
           })}
         </div>
