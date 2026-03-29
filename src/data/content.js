@@ -241,9 +241,9 @@ export const contactSection = {
       title: "צרו קשר",
       description: "וואטסאפ או מייל — נחזור מהר",
       items: [
-        { label: "תומר וואטסאפ", display: contact.phone2, href: `https://wa.me/972543210990?text=${encodeURIComponent(contact.whatsapp.defaultMessage)}`, external: true },
-        { label: "דולב וואטסאפ", display: contact.phone,  href: contact.whatsapp.href, external: true },
-        { label: "מייל", display: contact.email, href: contact.emailHref },
+        { label: "", display: contact.phone2, href: `https://wa.me/972543210990?text=${encodeURIComponent(contact.whatsapp.defaultMessage)}`, external: true },
+        { label: "", display: contact.phone,  href: contact.whatsapp.href, external: true },
+        { label: "", display: contact.email, href: contact.emailHref },
       ],
     },
   ],

@@ -82,21 +82,16 @@ export default function ContactSection() {
                 </p>
 
                 {/* Two sub-links */}
-                <div className={`flex flex-col gap-3 border-t ${colors.divider} pt-4`}>
-                  {ch.items.map((item) => (
+                <div className={`flex flex-col gap-2 border-t ${colors.divider} pt-4 items-center`}>
+                  {ch.items.map((item, idx) => (
                     <a
-                      key={item.label}
+                      key={idx}
                       href={item.href}
                       target={item.external ? '_blank' : undefined}
                       rel={item.external ? 'noopener noreferrer' : undefined}
-                      className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 hover:bg-white/5 transition-colors"
+                      className={`font-space-mono text-sm font-semibold ${colors.display} hover:opacity-75 transition-opacity`}
                     >
-                      <span className={`text-xs font-space-mono px-2 py-0.5 rounded-full ${colors.labelBg}`}>
-                        {item.label}
-                      </span>
-                      <span className={`font-space-mono text-sm font-semibold ${colors.display} truncate`}>
-                        {item.display}
-                      </span>
+                      {item.display}
                     </a>
                   ))}
                 </div>

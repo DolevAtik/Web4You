@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(node -e \"const {portfolio} = require\\(''''./src/data/content.js''''\\); console.log\\(portfolio.items.map\\(i=>i.id\\)\\)\")",
+      "Bash(node -e \":*)"
+    ]
+  }
+}

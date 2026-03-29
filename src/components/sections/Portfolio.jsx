@@ -104,15 +104,15 @@ function CTACard({ index, total }) {
       className="sticky"
       style={{ top: `calc(10vh + ${index * 10}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
     >
-      <div className="relative w-full rounded-[2rem] bg-[#0B1120] border border-dashed border-teal-500/30 flex flex-col items-center justify-center text-center p-10 min-h-[380px]">
+      <div className="relative w-full rounded-2xl bg-[#0B1120] border border-dashed border-teal-500/30 flex flex-col items-center justify-center text-center p-8" style={{ aspectRatio: '3 / 2' }}>
         <motion.div
           animate={{ y: [0, -9, 0] }}
           transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-          className="will-change-transform text-5xl mb-6"
+          className="will-change-transform text-4xl mb-4"
         >
           🚀
         </motion.div>
-        <p className="text-gray-400 mb-6 font-assistant text-lg">{cta.placeholder}</p>
+        <p className="text-gray-400 mb-4 font-assistant text-base">{cta.placeholder}</p>
         <a
           href={cta.href}
           className="font-rajdhani font-bold text-teal-400 hover:text-teal-300 text-xl transition-colors hover:underline underline-offset-4"
