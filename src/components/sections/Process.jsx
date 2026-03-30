@@ -51,7 +51,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="py-28 px-6 section-divider bg-line-grid"
+      className="py-20 px-6 section-divider bg-line-grid"
     >
       <div className="max-w-6xl mx-auto">
 

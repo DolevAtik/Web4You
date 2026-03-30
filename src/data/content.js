@@ -143,7 +143,15 @@ export const portfolio = {
     external: false,
   },
   items: [
-
+    {
+      id: "itay-izchaki",
+      title: "איתי יצחקי - מנחה אירועים",
+      description:
+        "דף נחיתה למנחה אירועים עם עיצוב חדשני \n להצגת האירועים והגדלת הלידים",
+      image: "images/itay-izchaki.png",
+      url: "https://tomernado.github.io/landing-page-Itay/",
+      tag: "אירועים",
+    },
     {
       id: "liel-edri-baking",
       title: "Liel Edri Baking",
@@ -166,7 +174,7 @@ export const portfolio = {
       id: "lital-kitchen",
       title: "LITAL KITCHEN",
       description:
-        "קטלוג מוצרים מודרני של מטבח ביתי לצורך הגדלת המכירות ",
+        "קטלוג מוצרים מודרני של מטבח ביתי \n לצורך הגדלת המכירות וחווית לקוח",
       image: "images/lital-kitchen.png",
       url: "https://dolevatik.github.io/LITAL-KITCHEN/",
       tag: "אוכל ביתי",
@@ -175,7 +183,7 @@ export const portfolio = {
       id: "tomer-portfolio",
       title: "Tomer Portfolio",
       description:
-        "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי\n לצורך הצגת פרויקטים אישיים והתבלטות בשוק העבודה",
+        "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי \n לצורך הצגת פרויקטים אישיים",
       image: "images/tomerweb.jpeg",
       url: "https://tomernado.github.io/tomer-portfolio/",
       tag: "פורטפוליו",
@@ -188,15 +196,6 @@ export const portfolio = {
       image: "images/or-levy.png",
       url: "https://orlevy-finance.vercel.app/",
       tag: "פיננסים",
-    },
-    {
-      id: "itay-izchaki",
-      title: "איתי יצחקי - מנחה אירועים",
-      description:
-        "דף נחיתה למנחה אירועים עם עיצוב חדשני להצגת האירועים",
-      image: "images/itay-izchaki.png",
-      url: "https://tomernado.github.io/landing-page-Itay/",
-      tag: "אירועים",
     },
     {
       id: "dl-baloons",

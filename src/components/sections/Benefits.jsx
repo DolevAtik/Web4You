@@ -56,7 +56,7 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-28 px-6 section-divider bg-dot-grid"
+      className="py-20 px-6 section-divider bg-dot-grid"
     >
       <div className="max-w-6xl mx-auto">
 

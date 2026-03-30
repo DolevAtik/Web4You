@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { contact, hero } from '../../data/content'
 import LogoMark from '../LogoMark'
+import InteractiveLogo from '../InteractiveLogo'
 
 // ── Typewriter ──────────────────────────────────────────────
 const STRINGS = ['שמביא לקוחות', 'שעובד בשבילך', 'שגדל איתך']
@@ -102,9 +103,10 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Terminal badge */}
-        <motion.div variants={item} className="flex justify-center mb-8">
-          <LogoMark className="text-2xl sm:text-3xl md:text-4xl" />
+        {/* Brand Header */}
+        <motion.div variants={item} className="flex flex-col items-center gap-1 mb-8 relative">
+          <InteractiveLogo size="md" />
+          <LogoMark className="text-4xl sm:text-5xl md:text-8xl" />
         </motion.div>
 
         {/* Main headline */}

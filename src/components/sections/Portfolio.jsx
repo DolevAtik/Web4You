@@ -92,19 +92,19 @@ function StickyCard({ item, index, containerRef }) {
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
         />
 
+        {/* Bottom-Left Tag */}
+        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-20">
+           <span
+             className="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-lg backdrop-blur-md"
+             style={{ backgroundColor: accent.tagBg, color: accent.tagText, border: `1px solid ${accent.border}` }}
+           >
+             {item.tag}
+           </span>
+        </div>
+
         {/* Text Overlay */}
         <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-transparent backdrop-blur-[2px]">
           <div className="flex flex-col gap-1 md:gap-2">
-            {/* Tag */}
-            <div className="flex items-center gap-2 mb-1">
-               <span
-                 className="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase"
-                 style={{ backgroundColor: accent.tagBg, color: accent.tagText }}
-               >
-                 {item.tag}
-               </span>
-            </div>
-
             {/* Title */}
             <h3 className="font-rajdhani font-bold text-lg md:text-2xl text-white leading-none">
               {item.title}
@@ -157,7 +157,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="relative w-full bg-dot-grid section-divider py-24"
+      className="relative w-full bg-dot-grid section-divider py-20"
       style={{ overflow: 'visible' }}
     >
       {/* Header */}
@@ -181,10 +181,10 @@ export default function Portfolio() {
       {/* Sticky stack — block layout, explicit height for reliable scroll tracking */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-5xl mx-auto px-12 md:px-24 mb-20 md:mb-40"
+        className="relative w-full max-w-5xl mx-auto px-12 md:px-24 mb-10 md:mb-20"
         style={{
           overflow: 'visible',
-          height: `calc(${(total + 1) * SLOT_PX}px + 50vh)`,
+          height: `calc(${(total + 1) * SLOT_PX}px + 40vh)`,
         }}
       >
         {portfolio.items.map((item, i) => (

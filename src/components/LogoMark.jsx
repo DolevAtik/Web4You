@@ -14,7 +14,7 @@ export default function LogoMark({ className = 'text-2xl' }) {
         style={{ filter: 'blur(14px)', opacity: 0.42 }}
         aria-hidden
       >
-        WEB4YOU
+        Web4You
       </span>
 
       {/* Periodic shimmer sweep */}
@@ -31,10 +31,10 @@ export default function LogoMark({ className = 'text-2xl' }) {
       </span>
 
       {/* Real text */}
-      <span className="relative font-rajdhani font-black tracking-tight">
-        <span className="text-white">WEB</span>
+      <span className="relative font-rajdhani font-black tracking-[0.05em]">
+        <span className="text-white">Web</span>
         <span className="logo-four text-teal-400">4</span>
-        <span className="text-white">YOU</span>
+        <span className="text-white">You</span>
       </span>
     </div>
   )

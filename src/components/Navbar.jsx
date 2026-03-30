@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { navLinks } from '../data/content'
 import { useActiveSection } from '../hooks/useActiveSection'
 import LogoMark from './LogoMark'
+import InteractiveLogo from './InteractiveLogo'
 
 const SECTION_IDS = ['benefits', 'process', 'portfolio', 'contact-form', 'contact']
 
