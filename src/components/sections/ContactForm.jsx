@@ -34,7 +34,7 @@ const INPUT_CLS = `
 const SELECT_CLS = INPUT_CLS + ' appearance-none cursor-pointer'
 
 export default function ContactForm() {
-  const formRef  = useRef(null)
+  const formRef = useRef(null)
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   const handleSubmit = async (e) => {

@@ -4,37 +4,37 @@ import { portfolio } from '../../data/content'
 
 // ── Glow palette ──────────────────────────────────────────────
 const GLOW_MAP = {
-  amber:   { shadow: '0 0 60px -10px rgba(245,158,11,0.5)',  border: 'rgba(245,158,11,0.35)',  tagBg: 'rgba(245,158,11,0.12)',  tagText: '#fbbf24' },
-  rose:    { shadow: '0 0 60px -10px rgba(244,63,94,0.5)',   border: 'rgba(244,63,94,0.35)',   tagBg: 'rgba(244,63,94,0.12)',   tagText: '#fb7185' },
-  emerald: { shadow: '0 0 60px -10px rgba(16,185,129,0.5)',  border: 'rgba(16,185,129,0.35)',  tagBg: 'rgba(16,185,129,0.12)', tagText: '#34d399' },
-  blue:    { shadow: '0 0 60px -10px rgba(59,130,246,0.5)',  border: 'rgba(59,130,246,0.35)',  tagBg: 'rgba(59,130,246,0.12)', tagText: '#60a5fa' },
-  violet:  { shadow: '0 0 60px -10px rgba(139,92,246,0.5)',  border: 'rgba(139,92,246,0.35)',  tagBg: 'rgba(139,92,246,0.12)', tagText: '#a78bfa' },
-  orange:  { shadow: '0 0 60px -10px rgba(249,115,22,0.5)',  border: 'rgba(249,115,22,0.35)',  tagBg: 'rgba(249,115,22,0.12)', tagText: '#fb923c' },
-  pink:    { shadow: '0 0 60px -10px rgba(236,72,153,0.5)',  border: 'rgba(236,72,153,0.35)',  tagBg: 'rgba(236,72,153,0.12)', tagText: '#f472b6' },
-  cyan:    { shadow: '0 0 60px -10px rgba(6,182,212,0.5)',   border: 'rgba(6,182,212,0.35)',   tagBg: 'rgba(6,182,212,0.12)',  tagText: '#22d3ee' },
-  green:   { shadow: '0 0 60px -10px rgba(34,197,94,0.5)',   border: 'rgba(34,197,94,0.35)',   tagBg: 'rgba(34,197,94,0.12)',  tagText: '#4ade80' },
-  teal:    { shadow: '0 0 60px -10px rgba(20,184,166,0.5)',  border: 'rgba(20,184,166,0.35)',  tagBg: 'rgba(20,184,166,0.12)', tagText: '#2dd4bf' },
+  amber: { shadow: '0 0 60px -10px rgba(245,158,11,0.5)', border: 'rgba(245,158,11,0.35)', tagBg: 'rgba(245,158,11,0.12)', tagText: '#fbbf24' },
+  rose: { shadow: '0 0 60px -10px rgba(244,63,94,0.5)', border: 'rgba(244,63,94,0.35)', tagBg: 'rgba(244,63,94,0.12)', tagText: '#fb7185' },
+  emerald: { shadow: '0 0 60px -10px rgba(16,185,129,0.5)', border: 'rgba(16,185,129,0.35)', tagBg: 'rgba(16,185,129,0.12)', tagText: '#34d399' },
+  blue: { shadow: '0 0 60px -10px rgba(59,130,246,0.5)', border: 'rgba(59,130,246,0.35)', tagBg: 'rgba(59,130,246,0.12)', tagText: '#60a5fa' },
+  violet: { shadow: '0 0 60px -10px rgba(139,92,246,0.5)', border: 'rgba(139,92,246,0.35)', tagBg: 'rgba(139,92,246,0.12)', tagText: '#a78bfa' },
+  orange: { shadow: '0 0 60px -10px rgba(249,115,22,0.5)', border: 'rgba(249,115,22,0.35)', tagBg: 'rgba(249,115,22,0.12)', tagText: '#fb923c' },
+  pink: { shadow: '0 0 60px -10px rgba(236,72,153,0.5)', border: 'rgba(236,72,153,0.35)', tagBg: 'rgba(236,72,153,0.12)', tagText: '#f472b6' },
+  cyan: { shadow: '0 0 60px -10px rgba(6,182,212,0.5)', border: 'rgba(6,182,212,0.35)', tagBg: 'rgba(6,182,212,0.12)', tagText: '#22d3ee' },
+  green: { shadow: '0 0 60px -10px rgba(34,197,94,0.5)', border: 'rgba(34,197,94,0.35)', tagBg: 'rgba(34,197,94,0.12)', tagText: '#4ade80' },
+  teal: { shadow: '0 0 60px -10px rgba(20,184,166,0.5)', border: 'rgba(20,184,166,0.35)', tagBg: 'rgba(20,184,166,0.12)', tagText: '#2dd4bf' },
 }
 
 const ACCENT_MAP = {
   'liel-edri-baking': 'amber',
-  'after-taste':      'rose',
-  'lital-kitchen':    'emerald',
-  'tomer-portfolio':  'blue',
-  'or-levy':          'violet',
-  'itay-izchaki':     'orange',
-  'dl-baloons':       'pink',
-  'mentconnect':      'cyan',
-  'amit-hadbarot':    'green',
+  'after-taste': 'rose',
+  'lital-kitchen': 'emerald',
+  'tomer-portfolio': 'blue',
+  'or-levy': 'violet',
+  'itay-izchaki': 'orange',
+  'dl-baloons': 'pink',
+  'mentconnect': 'cyan',
+  'amit-hadbarot': 'green',
 }
 
-const SLOT_PX = 270 // must match the container slot height
+const SLOT_PX = 350 // increased for better scroll duration and visibility
 
 // ── Single sticky card ────────────────────────────────────────
 function StickyCard({ item, index, containerRef }) {
-  const accent  = GLOW_MAP[ACCENT_MAP[item.id] ?? 'teal']
+  const accent = GLOW_MAP[ACCENT_MAP[item.id] ?? 'teal']
   const opacity = useMotionValue(1)
-  const scale   = useMotionValue(1)
+  const scale = useMotionValue(1)
 
   useEffect(() => {
     const update = () => {
@@ -46,7 +46,7 @@ function StickyCard({ item, index, containerRef }) {
 
       // This card fades during slot (index+1): from pixel (i+1)*SLOT_PX to (i+1.3)*SLOT_PX
       const fadeFrom = (index + 1) * SLOT_PX
-      const fadeTo   = fadeFrom + SLOT_PX * 0.3
+      const fadeTo = fadeFrom + SLOT_PX * 0.3
 
       if (scrolled <= fadeFrom) {
         opacity.set(1)
@@ -69,7 +69,7 @@ function StickyCard({ item, index, containerRef }) {
   return (
     <div
       className="sticky"
-      style={{ top: `calc(10vh + ${index * 10}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
+      style={{ top: `calc(10vh + ${index * 40}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
     >
       <motion.a
         href={item.url}
@@ -94,12 +94,12 @@ function StickyCard({ item, index, containerRef }) {
 
         {/* Bottom-Left Tag */}
         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-20">
-           <span
-             className="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-lg backdrop-blur-md"
-             style={{ backgroundColor: accent.tagBg, color: accent.tagText, border: `1px solid ${accent.border}` }}
-           >
-             {item.tag}
-           </span>
+          <span
+            className="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-lg backdrop-blur-md"
+            style={{ backgroundColor: accent.tagBg, color: accent.tagText, border: `1px solid ${accent.border}` }}
+          >
+            {item.tag}
+          </span>
         </div>
 
         {/* Text Overlay */}
@@ -127,7 +127,7 @@ function CTACard({ index, total }) {
   return (
     <div
       className="sticky"
-      style={{ top: `calc(10vh + ${index * 10}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
+      style={{ top: `calc(10vh + ${index * 40}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
     >
       <div className="relative w-full rounded-2xl bg-[#0B1120] border border-dashed border-teal-500/30 flex flex-col items-center justify-center text-center p-8" style={{ aspectRatio: '3 / 2' }}>
         <motion.div

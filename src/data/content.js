@@ -210,7 +210,7 @@ export const portfolio = {
       id: "mentconnect",
       title: "MentConnect",
       description:
-        "פלטפורמה מתקדמת לחיבור בין מנטורים בתעשייה\n ממשק ידידותי עם ניהול משתמשים ותקשורת יעילה",
+        "פלטפורמה מתקדמת לחיבור בין מנטורים\n ממשק ידידותי עם ניהול משתמשים",
       image: "images/mentconnect.png",
       url: "https://mentconnect.vercel.app/",
       tag: "פלטפורמה",
@@ -219,7 +219,7 @@ export const portfolio = {
       id: "amit-hadbarot",
       title: "עמית הדברות",
       description:
-        "דף נחיתה למדביר מקצועי עם עיצוב דינאמי \n לצורך הבאת לקוחות חדשים והצגת שירותים ",
+        "דף נחיתה למדביר מקצועי עם עיצוב דינאמי \n לצורך הבאת לקוחות חדשים ",
       image: "images/amit-hadbarot.png",
       url: "https://tomernado.github.io/amit-hadbarot/",
       tag: "שירותים מקצועיים",
