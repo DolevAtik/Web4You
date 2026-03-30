@@ -34,6 +34,7 @@ function StickyCard({ item, index, containerRef, slotPx, isMobile }) {
   const opacity = useMotionValue(isMobile ? 1 : 0)
   const scale = useMotionValue(isMobile ? 1 : 0.95)
   const y = useMotionValue(isMobile ? 0 : 20)
+  const dim = useMotionValue(0) // New: darkness overlay
 
   useEffect(() => {
     const update = () => {
@@ -49,21 +50,23 @@ function StickyCard({ item, index, containerRef, slotPx, isMobile }) {
       if (isMobile) {
         // Mobile "Loose Stack" logic: opaque but exits as next card arrives
         if (scrolled < fadeStart) {
-          opacity.set(1) // always opaque
+          opacity.set(1)
           y.set(0)
+          dim.set(0)
         } else if (scrolled < fadeEnd) {
-          // move up slightly as we reach the end of its slot
           const t = (scrolled - fadeStart) / slotPx
-          y.set(-t * 80) // move up to expose more of the next card
-          opacity.set(1 - t * 0.4) // subtle fade
+          y.set(-t * 80)
+          opacity.set(1 - t * 0.2) // subtle transparency
+          dim.set(t * 0.90) // gradual darkening up to 90%
         } else {
           y.set(-80)
-          opacity.set(0.6)
+          opacity.set(0.8)
+          dim.set(0.85)
         }
         return
       }
 
-      // Desktop "Swap" logic (Same as before)
+      // Desktop "Swap" logic
       if (scrolled < fadeStart - buffer) {
         opacity.set(0)
         scale.set(0.95)
@@ -91,7 +94,7 @@ function StickyCard({ item, index, containerRef, slotPx, isMobile }) {
     window.addEventListener('scroll', update, { passive: true })
     update()
     return () => window.removeEventListener('scroll', update)
-  }, [index, containerRef, opacity, scale, y, slotPx, isMobile])
+  }, [index, containerRef, opacity, scale, y, slotPx, isMobile, dim])
 
   return (
     <div
@@ -124,6 +127,12 @@ function StickyCard({ item, index, containerRef, slotPx, isMobile }) {
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
         />
 
+        {/* Dimming Overlay for Stacked Cards */}
+        <motion.div
+          className="absolute inset-0 bg-slate-950/80 z-10 pointer-events-none"
+          style={{ opacity: dim }}
+        />
+
         {/* Bottom-Left Tag */}
         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-20">
           <span
@@ -135,7 +144,7 @@ function StickyCard({ item, index, containerRef, slotPx, isMobile }) {
         </div>
 
         {/* Text Overlay */}
-        <div className="absolute inset-x-0 bottom-0 p-4 md:p-8 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent backdrop-blur-[2px]">
+        <div className="absolute inset-x-0 bottom-0 p-4 md:p-8 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent backdrop-blur-[2px] z-20">
           <div className="flex flex-col gap-1 md:gap-3">
             <h3 className="font-rajdhani font-bold text-xl md:text-3xl text-white leading-none">
               {item.title}

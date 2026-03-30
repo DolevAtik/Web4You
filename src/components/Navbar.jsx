@@ -28,7 +28,7 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-0.5 flex items-center justify-between gap-4">
 
         {/* ── Logo ── */}
         <motion.a

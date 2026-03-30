@@ -63,7 +63,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-dot-grid"
+      className="relative min-h-screen flex items-start justify-center pt-14 sm:pt-24 overflow-hidden bg-dot-grid"
     >
       {/* ── Animated blobs — desktop only ── */}
       <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
