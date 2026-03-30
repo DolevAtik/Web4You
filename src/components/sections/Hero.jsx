@@ -7,7 +7,7 @@ import LogoMark from '../LogoMark'
 // ── Typewriter ──────────────────────────────────────────────
 const STRINGS = ['שמביא לקוחות', 'שעובד בשבילך', 'שגדל איתך']
 
-function useTypewriter(strings, speed = 85, pause = 1800) {
+function useTypewriter(strings, speed = 75, pause = 800) {
   const [text, setText] = useState('')
   // All mutable state lives in a ref so the effect runs only once
   const s = useRef({ str: 0, char: 0, del: false })
@@ -110,9 +110,9 @@ export default function Hero() {
         {/* Main headline */}
         <motion.h1
           variants={item}
-          className="font-rajdhani font-bold text-5xl md:text-7xl lg:text-[5.5rem] leading-tight mb-5"
+          className="font-rajdhani font-bold text-[10vw] sm:text-5xl md:text-7xl lg:text-[5.5rem] leading-tight mb-5"
         >
-          <span className="text-white">אנחנו בונים לך אתר</span>
+          <span className="text-white whitespace-nowrap">אנחנו בונים לך אתר</span>
           <br />
           <span className="bg-gradient-to-l from-teal-300 via-teal-400 to-blue-400 bg-clip-text text-transparent text-glow-teal">
             {typed}

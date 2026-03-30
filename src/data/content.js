@@ -66,7 +66,7 @@ export const hero = {
 export const benefits = {
   sectionTitle: "למה אנחנו ?",
   sectionSubtitle:
-    "אנחנו לא רק בונים אתרים יפים, אנחנו בונים כלים שמביאים לך עסקים",
+    "אנחנו לא בונים רק אתרים יפים\n אנחנו בונים אתרים שמביאים לך לקוחות",
   items: [
     {
       id: "price",

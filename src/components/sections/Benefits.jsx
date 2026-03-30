@@ -71,7 +71,7 @@ export default function Benefits() {
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
             {benefits.sectionTitle}
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto font-assistant text-lg leading-relaxed">
+          <p className="text-gray-400 max-w-xl mx-auto font-assistant text-lg leading-relaxed whitespace-pre-line">
             {benefits.sectionSubtitle}
           </p>
         </motion.div>
