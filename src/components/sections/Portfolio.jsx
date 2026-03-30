@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { motion, useMotionValue } from 'framer-motion'
 import { portfolio } from '../../data/content'
 
@@ -28,48 +28,61 @@ const ACCENT_MAP = {
   'amit-hadbarot': 'green',
 }
 
-const SLOT_PX = 350 // increased for better scroll duration and visibility
-
 // ── Single sticky card ────────────────────────────────────────
-function StickyCard({ item, index, containerRef }) {
+function StickyCard({ item, index, containerRef, slotPx }) {
   const accent = GLOW_MAP[ACCENT_MAP[item.id] ?? 'teal']
-  const opacity = useMotionValue(1)
-  const scale = useMotionValue(1)
+  const opacity = useMotionValue(0)
+  const scale = useMotionValue(0.95)
+  const y = useMotionValue(20)
 
   useEffect(() => {
     const update = () => {
       const el = containerRef.current
       if (!el) return
-      // Distance from document top to container top
       const containerTop = el.getBoundingClientRect().top + window.scrollY
       const scrolled = Math.max(0, window.scrollY - containerTop)
 
-      // This card fades during slot (index+1): from pixel (i+1)*SLOT_PX to (i+1.3)*SLOT_PX
-      const fadeFrom = (index + 1) * SLOT_PX
-      const fadeTo = fadeFrom + SLOT_PX * 0.3
+      const fadeStart = index * slotPx
+      const fadeEnd = (index + 1) * slotPx
+      const buffer = slotPx * 0.15
 
-      if (scrolled <= fadeFrom) {
+      // New smooth-overlay/fade-in-out logic
+      if (scrolled < fadeStart - buffer) {
+        opacity.set(0)
+        scale.set(0.95)
+        y.set(20)
+      } else if (scrolled < fadeStart) {
+        // fade appearing in
+        const t = (scrolled - (fadeStart - buffer)) / buffer
+        opacity.set(t)
+        scale.set(0.95 + t * 0.05)
+        y.set(20 - t * 20)
+      } else if (scrolled < fadeEnd - buffer) {
+        // standard active
         opacity.set(1)
         scale.set(1)
-      } else if (scrolled >= fadeTo) {
-        opacity.set(0)
-        scale.set(0.93)
-      } else {
-        const t = (scrolled - fadeFrom) / (fadeTo - fadeFrom)
+        y.set(0)
+      } else if (scrolled < fadeEnd) {
+        // fade out exiting
+        const t = (scrolled - (fadeEnd - buffer)) / buffer
         opacity.set(1 - t)
-        scale.set(1 - t * 0.07)
+        scale.set(1 - t * 0.05)
+        y.set(-t * 20)
+      } else {
+        opacity.set(0)
+        scale.set(0.95)
       }
     }
 
     window.addEventListener('scroll', update, { passive: true })
-    update() // initialise on mount
+    update()
     return () => window.removeEventListener('scroll', update)
-  }, [index, containerRef, opacity, scale])
+  }, [index, containerRef, opacity, scale, y, slotPx])
 
   return (
     <div
       className="sticky"
-      style={{ top: `calc(10vh + ${index * 40}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
+      style={{ top: '12vh', zIndex: 10 + index, height: `${slotPx}px` }}
     >
       <motion.a
         href={item.url}
@@ -78,9 +91,10 @@ function StickyCard({ item, index, containerRef }) {
         style={{
           opacity,
           scale,
+          y,
           boxShadow: accent.shadow,
           border: `1px solid ${accent.border}`,
-          transformOrigin: 'top center',
+          transformOrigin: 'center center',
           aspectRatio: '3 / 2',
         }}
         className="relative block w-full rounded-2xl overflow-hidden cursor-pointer group"
@@ -95,7 +109,7 @@ function StickyCard({ item, index, containerRef }) {
         {/* Bottom-Left Tag */}
         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 z-20">
           <span
-            className="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase shadow-lg backdrop-blur-md"
+            className="px-2 py-0.5 rounded-full text-[10px] md:text-sm font-bold tracking-wider uppercase shadow-lg backdrop-blur-md"
             style={{ backgroundColor: accent.tagBg, color: accent.tagText, border: `1px solid ${accent.border}` }}
           >
             {item.tag}
@@ -103,15 +117,12 @@ function StickyCard({ item, index, containerRef }) {
         </div>
 
         {/* Text Overlay */}
-        <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-transparent backdrop-blur-[2px]">
-          <div className="flex flex-col gap-1 md:gap-2">
-            {/* Title */}
-            <h3 className="font-rajdhani font-bold text-lg md:text-2xl text-white leading-none">
+        <div className="absolute inset-x-0 bottom-0 p-4 md:p-8 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent backdrop-blur-[2px]">
+          <div className="flex flex-col gap-1 md:gap-3">
+            <h3 className="font-rajdhani font-bold text-xl md:text-3xl text-white leading-none">
               {item.title}
             </h3>
-
-            {/* Description */}
-            <p className="font-assistant text-xs md:text-sm text-gray-300 leading-tight md:leading-relaxed max-w-[90%] whitespace-pre-line line-clamp-2 md:line-clamp-none">
+            <p className="font-assistant text-xs md:text-base text-gray-300 leading-tight md:leading-relaxed max-w-[90%] whitespace-pre-line antialiased">
               {item.description}
             </p>
           </div>
@@ -122,14 +133,36 @@ function StickyCard({ item, index, containerRef }) {
 }
 
 // ── CTA sticky card ───────────────────────────────────────────
-function CTACard({ index, total }) {
+function CTACard({ index, containerRef, slotPx, isMobile }) {
   const { cta } = portfolio
+  const opacity = useMotionValue(0)
+
+  useEffect(() => {
+    const update = () => {
+      const el = containerRef.current
+      if (!el) return
+      const scrolled = Math.max(0, window.scrollY - (el.getBoundingClientRect().top + window.scrollY))
+      const trigger = index * slotPx
+      if (scrolled >= trigger) {
+        const t = Math.min(1, (scrolled - trigger) / 200)
+        opacity.set(t)
+      } else {
+        opacity.set(0)
+      }
+    }
+    window.addEventListener('scroll', update)
+    return () => window.removeEventListener('scroll', update)
+  }, [index, containerRef, opacity, slotPx])
+
   return (
     <div
       className="sticky"
-      style={{ top: `calc(10vh + ${index * 40}px)`, zIndex: index + 1, height: `${SLOT_PX}px` }}
+      style={{ top: isMobile ? '10vh' : '15vh', zIndex: 10 + index, height: `${slotPx}px` }}
     >
-      <div className="relative w-full rounded-2xl bg-[#0B1120] border border-dashed border-teal-500/30 flex flex-col items-center justify-center text-center p-8" style={{ aspectRatio: '3 / 2' }}>
+      <motion.div
+        style={{ opacity, aspectRatio: '3 / 2' }}
+        className="relative w-full rounded-2xl bg-[#0B1120] border border-dashed border-teal-500/30 flex flex-col items-center justify-center text-center p-8"
+      >
         <motion.div
           animate={{ y: [0, -9, 0] }}
           transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
@@ -137,14 +170,14 @@ function CTACard({ index, total }) {
         >
           🚀
         </motion.div>
-        <p className="text-gray-400 mb-4 font-assistant text-base">{cta.placeholder}</p>
+        <p className="text-gray-400 mb-4 font-assistant text-lg text-white">{cta.placeholder}</p>
         <a
           href={cta.href}
-          className="font-rajdhani font-bold text-teal-400 hover:text-teal-300 text-xl transition-colors hover:underline underline-offset-4"
+          className="font-rajdhani font-bold text-teal-400 hover:text-teal-300 text-2xl transition-colors hover:underline underline-offset-4"
         >
           {cta.label}
         </a>
-      </div>
+      </motion.div>
     </div>
   )
 }
@@ -152,7 +185,32 @@ function CTACard({ index, total }) {
 // ── Main section ──────────────────────────────────────────────
 export default function Portfolio() {
   const containerRef = useRef(null)
-  const total = portfolio.items.length // 9 project cards
+  const total = portfolio.items.length
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const handleCheck = () => setIsMobile(window.innerWidth < 768)
+    handleCheck()
+    window.addEventListener('resize', handleCheck)
+
+    const handleScroll = () => {
+      if (!containerRef.current) return
+      const rect = containerRef.current.getBoundingClientRect()
+      const scrolled = Math.max(0, window.scrollY - (rect.top + window.scrollY))
+      const currentSlotPx = window.innerWidth < 768 ? 400 : 600
+      const idx = Math.min(total - 1, Math.floor(scrolled / currentSlotPx))
+      setActiveIndex(idx)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('resize', handleCheck)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [total])
+
+  const slotPx = isMobile ? 400 : 600
+  const buffer = isMobile ? '50vh' : '60vh'
 
   return (
     <section
@@ -178,13 +236,31 @@ export default function Portfolio() {
         </motion.div>
       </div>
 
-      {/* Sticky stack — block layout, explicit height for reliable scroll tracking */}
+      {/* Counter - Desktop Only */}
+      <div className="hidden lg:flex fixed left-10 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-4">
+        <span className="text-teal-400 font-rajdhani font-bold text-3xl">
+          {(activeIndex + 1).toString().padStart(2, '0')}
+        </span>
+        <div className="w-px h-20 bg-slate-800 relative">
+          <motion.div
+            className="absolute top-0 w-full bg-teal-500"
+            style={{
+              height: `${((activeIndex + 1) / total) * 100}%`
+            }}
+          />
+        </div>
+        <span className="text-slate-600 font-rajdhani text-sm">
+          {total.toString().padStart(2, '0')}
+        </span>
+      </div>
+
+      {/* Sticky stack - same index top */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-5xl mx-auto px-12 md:px-24 mb-10 md:mb-20"
+        className="relative w-full max-w-5xl mx-auto px-6 md:px-24 mb-10 md:mb-20"
         style={{
           overflow: 'visible',
-          height: `calc(${(total + 1) * SLOT_PX}px + 50vh)`,
+          height: `calc(${(total + 1) * slotPx}px + ${buffer})`,
         }}
       >
         {portfolio.items.map((item, i) => (
@@ -193,9 +269,10 @@ export default function Portfolio() {
             item={item}
             index={i}
             containerRef={containerRef}
+            slotPx={slotPx}
           />
         ))}
-        <CTACard index={total} total={total} />
+        <CTACard index={total} containerRef={containerRef} slotPx={slotPx} isMobile={isMobile} />
       </div>
     </section>
   )

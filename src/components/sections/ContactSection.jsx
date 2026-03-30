@@ -30,7 +30,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 px-6 section-divider bg-line-grid"
+      className="py-20 px-6 section-divider bg-dot-grid"
     >
       <div className="max-w-4xl mx-auto text-center">
 
