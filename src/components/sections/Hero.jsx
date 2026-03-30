@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowLeft, MessageCircle } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { contact, hero } from '../../data/content'
 import LogoMark from '../LogoMark'
 
 // ── Typewriter ──────────────────────────────────────────────
-const STRINGS = ['שמביא לקוחות', 'שעובד בשבילך', 'שממיר מבקרים', 'שגדל איתך']
+const STRINGS = ['שמביא לקוחות', 'שעובד בשבילך', 'שגדל איתך']
 
 function useTypewriter(strings, speed = 85, pause = 1800) {
   const [text, setText] = useState('')
@@ -51,7 +51,7 @@ const container = {
   visible: { transition: { staggerChildren: 0.14 } },
 }
 const item = {
-  hidden:  { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: 'easeOut' } },
 }
 
@@ -152,17 +152,6 @@ export default function Hero() {
             />
           </motion.a>
 
-          <motion.a
-            href={contact.whatsapp.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="flex items-center gap-3 border border-blue-500/40 hover:border-blue-400/70 bg-blue-500/[0.08] hover:bg-blue-500/[0.15] text-blue-300 hover:text-blue-200 px-8 py-4 rounded-xl font-rajdhani font-bold text-lg transition-all duration-300"
-          >
-            <MessageCircle size={18} />
-            {hero.ctaSecondary.label}
-          </motion.a>
         </motion.div>
 
         {/* Stats */}
@@ -179,9 +168,8 @@ export default function Hero() {
               transition={{ delay: 1.3 + i * 0.15, duration: 0.55 }}
             >
               <div
-                className={`font-rajdhani font-bold text-3xl md:text-4xl ${
-                  stat.color === 'teal' ? 'text-teal-400' : 'text-blue-400'
-                }`}
+                className={`font-rajdhani font-bold text-3xl md:text-4xl ${stat.color === 'teal' ? 'text-teal-400' : 'text-blue-400'
+                  }`}
               >
                 {stat.value}
               </div>

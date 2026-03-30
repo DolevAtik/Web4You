@@ -81,19 +81,36 @@ export default function ContactSection() {
                   {ch.description}
                 </p>
 
-                {/* Two sub-links */}
-                <div className={`flex flex-col gap-2 border-t ${colors.divider} pt-4 items-center`}>
-                  {ch.items.map((item, idx) => (
+                {/* Sub-links grouped */}
+                <div className={`flex flex-col gap-4 border-t ${colors.divider} pt-6 items-center`}>
+                  {/* Email written out first */}
+                  {ch.items[0] && (
                     <a
-                      key={idx}
-                      href={item.href}
-                      target={item.external ? '_blank' : undefined}
-                      rel={item.external ? 'noopener noreferrer' : undefined}
-                      className={`font-space-mono text-sm font-semibold ${colors.display} hover:opacity-75 transition-opacity`}
+                      href={ch.items[0].href}
+                      target={ch.items[0].external ? '_blank' : undefined}
+                      rel={ch.items[0].external ? 'noopener noreferrer' : undefined}
+                      className="font-assistant text-base md:text-lg text-white hover:text-teal-400 transition-colors border-b border-gray-700/50 pb-0.5"
                     >
-                      {item.display}
+                      {ch.items[0].display}
                     </a>
-                  ))}
+                  )}
+
+                  {/* Phone numbers in one row below */}
+                  <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
+                    {ch.items.slice(1, 3).map((item, idx) => (
+                      <React.Fragment key={idx}>
+                        <a
+                          href={item.href}
+                          target={item.external ? '_blank' : undefined}
+                          rel={item.external ? 'noopener noreferrer' : undefined}
+                          className={`font-space-mono text-sm md:text-base font-bold ${colors.display} hover:opacity-75 transition-opacity`}
+                        >
+                          {item.display}
+                        </a>
+                        {idx === 0 && <span className="text-gray-600 hidden sm:inline">|</span>}
+                      </React.Fragment>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             )

@@ -54,7 +54,7 @@ export default function Process() {
             />
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {processData.steps.map((step, i) => {
               const c = COLOR[step.color] ?? COLOR.teal
 
@@ -65,14 +65,14 @@ export default function Process() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true, amount: 0.15, margin: '-50px' }}
                   transition={{ duration: 0.6, delay: i * 0.13 }}
-                  className="relative flex flex-col items-center md:items-start text-center md:text-right"
+                  className="relative flex flex-col items-center md:items-start text-center md:text-right h-full"
                 >
                   {/* Number bubble */}
                   <div className="relative mb-6 flex justify-center md:justify-start w-full">
                     <div
-                      className={`relative w-14 h-14 ${c.bg} rounded-2xl flex items-center justify-center shadow-lg ${c.glow}`}
+                      className={`relative w-12 h-12 md:w-14 md:h-14 ${c.bg} rounded-2xl flex items-center justify-center shadow-lg ${c.glow}`}
                     >
-                      <span className="font-rajdhani font-bold text-2xl text-white relative z-10">
+                      <span className="font-rajdhani font-bold text-xl md:text-2xl text-white relative z-10">
                         {step.number}
                       </span>
                       {/* Pulsing ring */}
@@ -92,16 +92,16 @@ export default function Process() {
                   {/* Card */}
                   <div
                     className={`
-                      w-full
+                      w-full h-full flex flex-col
                       bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
                       border ${c.border}
-                      rounded-2xl p-6
+                      rounded-2xl p-4 md:p-6
                     `}
                   >
-                    <h3 className="font-rajdhani font-bold text-xl text-white mb-3">
+                    <h3 className="font-rajdhani font-bold text-lg md:text-xl text-white mb-2 md:mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 font-assistant text-sm leading-relaxed">
+                    <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed">
                       {step.description}
                     </p>
                   </div>

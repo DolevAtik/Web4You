@@ -6,7 +6,7 @@
 export const brand = {
   name: "Web4You",
   tagline: "בונים אתרים שמביאים לקוחות, לא רק נראים טובים",
-  copyright: "© 2024 Web4You. כל הזכויות שמורות.",
+  copyright: "© 2026 Web4You. כל הזכויות שמורות.",
 };
 
 // ── Contact ──────────────────────────────────────────────────
@@ -21,7 +21,7 @@ export const contact = {
   email2Href: "mailto:Web4you2026@gmail.com",
   whatsapp: {
     number: "972509237173",
-    defaultMessage: "היי, אני רוצה לבנות אתר שמביא לקוחות!",
+    defaultMessage: "היי, אני רוצה לבנות אתר שמביא לקוחות אשמח לפרטים נוספים!",
     get href() {
       return `https://wa.me/${this.number}?text=${encodeURIComponent(this.defaultMessage)}`;
     },
@@ -57,46 +57,47 @@ export const hero = {
     external: true,
   },
   stats: [
-    { value: "50+", label: "אתרים שבנינו", color: "teal" },
-    { value: "100%", label: "הנחנו למביא תוצאות", color: "blue" },
+    { value: "10+", label: "אתרים שבנינו", color: "teal" },
+    { value: "100%", label: "לקוחות מרוצים", color: "blue" },
     { value: "24/7", label: "תמיכה דיגיטלית", color: "teal" },
   ],
 };
 
 // ── Benefits ─────────────────────────────────────────────────
 export const benefits = {
-  sectionTitle: "למה לבחור בנו?",
+  sectionTitle: "למה אנחנו ?",
   sectionSubtitle:
     "אנחנו לא רק בונים אתרים יפים, אנחנו בונים כלים שמביאים לך עסקים",
   items: [
+    {
+      id: "price",
+      icon: "DollarSign",
+      color: "emerald",
+      title: "מחיר",
+      description: "איכות פרימיום בחצי מחיר מהשוק — בלי עלויות מוסתרות ובלי הפתעות",
+    },
     {
       id: "speed",
       icon: "Zap",
       color: "orange",
       title: "מהירות בנייה",
-      description: "אנחנו מפתחים אתרים מהירים שלא מחכים לשום דבר",
+      description: "אנחנו מפתחים אתרים במהירות שיא - תוך 5 ימי עסקים בלבד",
     },
     {
       id: "custom",
       icon: "Paintbrush",
       color: "blue",
       title: "התאמה אישית",
-      description: "כל אתר מעוצב בדיוק לפי דרישותיך וזהות העסק שלך",
+      description: "כל אתר מעוצב בדיוק לפי הדרישות וזהות העסק שלך",
     },
     {
       id: "integration",
       icon: "Globe",
       color: "violet",
       title: "אינטגרציה מלאה",
-      description: "וואטסאפ, טלפון, מיילים וטפסים - הכל בשביל להביא לקוחות",
+      description: "וואטסאפ, טלפון, מיילים וטפסים - הכל בשביל להביא לקוחות ולידים",
     },
-    {
-      id: "price",
-      icon: "DollarSign",
-      color: "emerald",
-      title: "מחיר שווה",
-      description: "איכות פרימיום במחיר נגיש — בלי עלויות מוסתרות ובלי הפתעות",
-    },
+
   ],
 };
 
@@ -106,25 +107,25 @@ export const process = {
   steps: [
     {
       number: 1,
-      color: "teal",
-      title: "טופס אפיון",
-      description: "אתה ממלא טופס פשוט ואנחנו מבינים בדיוק מה צריך",
+      color: "blue",
+      title: "פגישת ייעוץ",
+      description: "נבין לעומק את הצרכים של העסק שלך ונבנה תוכנית עבודה",
     },
     {
       number: 2,
-      color: "blue",
-      title: "עיצוב ראשוני",
-      description: "אנחנו יוצרים עיצוב ראשוני שתוכל לראות ולתת פידבק",
+      color: "teal",
+      title: "בנייה ופיתוח",
+      description: "אנחנו בונים את האתר בטכנולוגיות הטובות ביותר ומעלים גרסה ראשונית",
     },
     {
       number: 3,
-      color: "teal",
-      title: "בנייה ופיתוח",
-      description: "אנחנו בונים את האתר בטכנולוגיות הטובות ביותר",
+      color: "blue",
+      title: "פידבק ושינויים",
+      description: "אתה נותן לנו פידבק ואנחנו מבצעים את השינויים הנדרשים",
     },
     {
       number: 4,
-      color: "blue",
+      color: "teal",
       title: "עלייה לאוויר",
       description: "האתר שלך חי ועובד בעולם עם תיעוד מלא",
     },
@@ -135,7 +136,7 @@ export const process = {
 export const portfolio = {
   sectionTitle: "עבודות שלנו",
   sectionSubtitle:
-    "הנה כמה מהפרויקטים שבנינו. כל אחד מהם הוא סיפור הצלחה של עסק שגדל",
+    "הנה כמה מהפרויקטים שבנינו. כל אחד מהם הוא סיפור הצלחה של עסק קטן שהפך לגדול",
   cta: {
     placeholder: "וגם הפרויקט שלך יכול להיות כאן",
     label: "בואו נתחיל ←",
@@ -151,7 +152,7 @@ export const portfolio = {
         "עיצוב יוקרתי נקי לחברת אפיה מקצועית עם דגש על חווית משתמש והגדלת המכירות.",
       image: "images/liel-edri-baking.png",
       url: "https://dolevatik.github.io/Liel-Edri-Baking/",
-      tag: "קייטרינג ואפיה",
+      tag: "קינוחי בוטיק",
     },
     {
       id: "after-taste",
@@ -166,7 +167,7 @@ export const portfolio = {
       id: "lital-kitchen",
       title: "LITAL KITCHEN",
       description:
-        "קטלוג מוצרים מודרני למטבח ביתי עם עיצוב מנומק. חוויה קנייה חלקה המשפרת את חווית המשתמש והגדלת המכירות.",
+        "קטלוג מוצרים מודרני למטבח ביתי עם עיצוב מנומק. חוויה קנייה חלקה ונוחה .",
       image: "images/lital-kitchen.png",
       url: "https://dolevatik.github.io/LITAL-KITCHEN/",
       tag: "מסחר אלקטרוני",
@@ -175,7 +176,7 @@ export const portfolio = {
       id: "tomer-portfolio",
       title: "Tomer Portfolio",
       description:
-        "תיקיית עבודות של מפתח עם טכנולוגיות עדכניות. משדרת מקצועיות וניסיון דרך אתרים יוקרתיים ומתקדמים.",
+        "פורטפוליו למפתח עם עיצוב מודרני ויוקרתי להצגת פרטים אישיים לצורך התבלטות בשוק העבודה",
       image: "images/tomerweb.jpeg",
       url: "https://tomernado.github.io/tomer-portfolio/",
       tag: "פורטפוליו",
@@ -184,7 +185,7 @@ export const portfolio = {
       id: "or-levy",
       title: "Or Levy Finance",
       description:
-        "פתרון ניהול כספים מקצועי וממוכן. ממשק אינטואיטיבי עם דיזיין מודרני ומעטפת עסק בטוחה.",
+        "אתר תדמית לאיש פיננסים עם עיצוב מודרני ויוקרתי להגדלת הלידים.",
       image: "images/or-levy.png",
       url: "https://orlevy-finance.vercel.app/",
       tag: "פיננסים",
@@ -193,7 +194,7 @@ export const portfolio = {
       id: "itay-izchaki",
       title: "איתי יצחקי - מנחה אירועים",
       description:
-        "הנחיית אירועים מקצועית, ייחודית ומרגשת שהופכת כל אירוע לחוויה בלתי נשכחת עם אנרגיות גבוהות והתאמה לקהל.",
+        "דף נחיתה למנחה אירועים עם עיצוב חדשני להצגת האירועים",
       image: "images/itay-izchaki.png",
       url: "https://tomernado.github.io/landing-page-Itay/",
       tag: "אירועים",
@@ -202,7 +203,7 @@ export const portfolio = {
       id: "dl-baloons",
       title: "DL Baloons",
       description:
-        "אתר מכירות בלונים יוקרתיים עם עיצוב מודרני. מאוד יעיל בהגברת ההזמנות ויצירת קשר עם לקוחות.",
+        "אתר מכירות בלונים יוקרתיים עם עיצוב נקי. מאוד יעיל בהגברת ההזמנות ויצירת קשר עם לקוחות.",
       image: "images/dl-baloons.png",
       url: "https://dolevatik.github.io/DL-Baloons/",
       tag: "מכירות",
@@ -220,7 +221,7 @@ export const portfolio = {
       id: "amit-hadbarot",
       title: "עמית הדברות",
       description:
-        "שירותי הדברה מקצועיים לתיקנים, מכרסמים, פרעושים ונמלים עם 15 שנות ניסיון והיתר מהמשרד להגנת הסביבה.",
+        "דף נחיתה למדביר מקצועי עם עיצוב דינאמי להבאת לקוחות חדשים .",
       image: "images/amit-hadbarot.png",
       url: "https://tomernado.github.io/amit-hadbarot/",
       tag: "שירותים מקצועיים",
@@ -231,24 +232,21 @@ export const portfolio = {
 // ── Contact Section ──────────────────────────────────────────
 export const contactSection = {
   sectionTitle: "צור קשר",
-  sectionSubtitle: "בואו נדבר ישירות - לא בטופס, בוואטסאפ, בטלפון או במיל",
+  sectionSubtitle: "דברו עם הצוות שלנו ונחזור אליכם באותו היום !",
   channels: [
     {
       id: "contact-combined",
       icon: "MessageCircle",
       color: "teal",
-      title: "צרו קשר",
-      description: "וואטסאפ או מייל — נחזור מהר",
+      title: "ישירות אלינו",
       items: [
-        { label: "", display: contact.phone2, href: `https://wa.me/972543210990?text=${encodeURIComponent(contact.whatsapp.defaultMessage)}`, external: true },
-        { label: "", display: contact.phone,  href: contact.whatsapp.href, external: true },
         { label: "", display: contact.email, href: contact.emailHref },
+        { label: "", display: contact.phone2, href: `https://wa.me/972543210990?text=${encodeURIComponent(contact.whatsapp.defaultMessage)}`, external: true },
+        { label: "", display: contact.phone, href: contact.whatsapp.href, external: true },
       ],
     },
   ],
 };
-
-// ── Footer ───────────────────────────────────────────────────
 export const footer = {
   tagline: brand.tagline,
   copyright: brand.copyright,

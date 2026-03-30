@@ -77,7 +77,7 @@ export default function Benefits() {
         </motion.div>
 
         {/* ── Cards ── */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {benefits.items.map((item, i) => {
             const Icon   = ICON_MAP[item.icon] ?? Zap
             const colors = COLOR[item.color]   ?? COLOR.teal
@@ -90,6 +90,7 @@ export default function Benefits() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="h-full"
               >
                 {/* Inner: continuous water float */}
                 <motion.div
