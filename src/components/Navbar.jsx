@@ -24,11 +24,11 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/90 sm:backdrop-blur-2xl border-b border-white/[0.06]'
+          ? 'bg-slate-950/95 sm:backdrop-blur-3xl border-b border-white/[0.08] shadow-2xl'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-0.5 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between gap-4">
 
         {/* ── Logo ── */}
         <motion.a
