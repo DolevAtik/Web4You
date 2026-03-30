@@ -29,11 +29,11 @@ const ACCENT_MAP = {
 }
 
 // ── Single sticky card ────────────────────────────────────────
-function StickyCard({ item, index, containerRef, slotPx }) {
+function StickyCard({ item, index, containerRef, slotPx, isMobile }) {
   const accent = GLOW_MAP[ACCENT_MAP[item.id] ?? 'teal']
-  const opacity = useMotionValue(0)
-  const scale = useMotionValue(0.95)
-  const y = useMotionValue(20)
+  const opacity = useMotionValue(isMobile ? 1 : 0)
+  const scale = useMotionValue(isMobile ? 1 : 0.95)
+  const y = useMotionValue(isMobile ? 0 : 20)
 
   useEffect(() => {
     const update = () => {
@@ -46,24 +46,38 @@ function StickyCard({ item, index, containerRef, slotPx }) {
       const fadeEnd = (index + 1) * slotPx
       const buffer = slotPx * 0.15
 
-      // New smooth-overlay/fade-in-out logic
+      if (isMobile) {
+        // Mobile "Loose Stack" logic: opaque but exits as next card arrives
+        if (scrolled < fadeStart) {
+          opacity.set(1) // always opaque
+          y.set(0)
+        } else if (scrolled < fadeEnd) {
+          // move up slightly as we reach the end of its slot
+          const t = (scrolled - fadeStart) / slotPx
+          y.set(-t * 80) // move up to expose more of the next card
+          opacity.set(1 - t * 0.4) // subtle fade
+        } else {
+          y.set(-80)
+          opacity.set(0.6)
+        }
+        return
+      }
+
+      // Desktop "Swap" logic (Same as before)
       if (scrolled < fadeStart - buffer) {
         opacity.set(0)
         scale.set(0.95)
         y.set(20)
       } else if (scrolled < fadeStart) {
-        // fade appearing in
         const t = (scrolled - (fadeStart - buffer)) / buffer
         opacity.set(t)
         scale.set(0.95 + t * 0.05)
         y.set(20 - t * 20)
       } else if (scrolled < fadeEnd - buffer) {
-        // standard active
         opacity.set(1)
         scale.set(1)
         y.set(0)
       } else if (scrolled < fadeEnd) {
-        // fade out exiting
         const t = (scrolled - (fadeEnd - buffer)) / buffer
         opacity.set(1 - t)
         scale.set(1 - t * 0.05)
@@ -77,12 +91,16 @@ function StickyCard({ item, index, containerRef, slotPx }) {
     window.addEventListener('scroll', update, { passive: true })
     update()
     return () => window.removeEventListener('scroll', update)
-  }, [index, containerRef, opacity, scale, y, slotPx])
+  }, [index, containerRef, opacity, scale, y, slotPx, isMobile])
 
   return (
     <div
       className="sticky"
-      style={{ top: '12vh', zIndex: 10 + index, height: `${slotPx}px` }}
+      style={{
+        top: isMobile ? `calc(10vh + ${index * 45}px)` : '12vh',
+        zIndex: 10 + index,
+        height: `${slotPx}px`
+      }}
     >
       <motion.a
         href={item.url}
@@ -135,9 +153,13 @@ function StickyCard({ item, index, containerRef, slotPx }) {
 // ── CTA sticky card ───────────────────────────────────────────
 function CTACard({ index, containerRef, slotPx, isMobile }) {
   const { cta } = portfolio
-  const opacity = useMotionValue(0)
+  const opacity = useMotionValue(isMobile ? 1 : 0)
 
   useEffect(() => {
+    if (isMobile) {
+      opacity.set(1)
+      return
+    }
     const update = () => {
       const el = containerRef.current
       if (!el) return
@@ -152,12 +174,16 @@ function CTACard({ index, containerRef, slotPx, isMobile }) {
     }
     window.addEventListener('scroll', update)
     return () => window.removeEventListener('scroll', update)
-  }, [index, containerRef, opacity, slotPx])
+  }, [index, containerRef, opacity, slotPx, isMobile])
 
   return (
     <div
       className="sticky"
-      style={{ top: isMobile ? '10vh' : '15vh', zIndex: 10 + index, height: `${slotPx}px` }}
+      style={{
+        top: isMobile ? `calc(10vh + ${index * 45}px)` : '15vh',
+        zIndex: 10 + index,
+        height: `${slotPx}px`
+      }}
     >
       <motion.div
         style={{ opacity, aspectRatio: '3 / 2' }}
@@ -210,7 +236,7 @@ export default function Portfolio() {
   }, [total])
 
   const slotPx = isMobile ? 400 : 600
-  const buffer = isMobile ? '50vh' : '60vh'
+  const buffer = isMobile ? '20vh' : '60vh'
 
   return (
     <section
@@ -254,7 +280,7 @@ export default function Portfolio() {
         </span>
       </div>
 
-      {/* Sticky stack - same index top */}
+      {/* Sticky stack - conditional logic */}
       <div
         ref={containerRef}
         className="relative w-full max-w-5xl mx-auto px-6 md:px-24 mb-10 md:mb-20"
@@ -268,6 +294,7 @@ export default function Portfolio() {
             key={item.id}
             item={item}
             index={i}
+            isMobile={isMobile}
             containerRef={containerRef}
             slotPx={slotPx}
           />

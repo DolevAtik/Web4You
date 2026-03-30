@@ -157,7 +157,7 @@ export const portfolio = {
       title: "Liel Edri Baking",
       description:
         "עיצוב יוקרתי ונקי לחברת אפיה מקצועית\n  עם דגש על חווית משתמש והגדלת המכירות.",
-      image: "images/liel-edri-baking.png",
+      image: "images/liel-edri-fix.jpeg",
       url: "https://dolevatik.github.io/Liel-Edri-Baking/",
       tag: "קינוחי בוטיק",
     },
@@ -175,7 +175,7 @@ export const portfolio = {
       title: "LITAL KITCHEN",
       description:
         "קטלוג מוצרים מודרני של מטבח ביתי \n לצורך הגדלת המכירות וחווית לקוח",
-      image: "images/lital-kitchen.png",
+      image: "images/lital-kitchen-fix.jpeg",
       url: "https://dolevatik.github.io/LITAL-KITCHEN/",
       tag: "אוכל ביתי",
     },
@@ -184,7 +184,7 @@ export const portfolio = {
       title: "Tomer Portfolio",
       description:
         "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי \n לצורך הצגת פרויקטים אישיים",
-      image: "images/tomerweb.jpeg",
+      image: "images/tomer-fix.jpeg",
       url: "https://tomernado.github.io/tomer-portfolio/",
       tag: "פורטפוליו",
     },
