@@ -56,7 +56,7 @@ export const hero = {
     external: true,
   },
   stats: [
-    { value: "10+", label: "אתרים שבנינו", color: "teal" },
+    { value: "20+", label: "אתרים שבנינו", color: "teal" },
     { value: "100%", label: "לקוחות מרוצים", color: "blue" },
     { value: "24/7", label: "תמיכה דיגיטלית", color: "teal" },
   ],
@@ -106,25 +106,25 @@ export const process = {
   steps: [
     {
       number: 1,
-      color: "teal",
+      color: "blue400",
       title: "השארת פרטים",
       description: "נבין לעומק את הצרכים של העסק שלך ונבנה תוכנית עבודה",
     },
     {
       number: 2,
-      color: "blue",
+      color: "blue500",
       title: "בנייה ופיתוח",
       description: "אנחנו בונים לך אתר מקצועי ואיכותי תוך 5 ימי עסקים בלבד",
     },
     {
       number: 3,
-      color: "violet",
+      color: "blue600",
       title: "פידבק ושינויים",
       description: "קבלת פידבק ותיקונים ממכם לשביעות רצון מלאה",
     },
     {
       number: 4,
-      color: "rose",
+      color: "blue700",
       title: "עלייה לאוויר",
       description: "האתר שלכם חי ומוכן לעבודה ",
     },

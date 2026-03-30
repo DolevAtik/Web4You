@@ -3,47 +3,33 @@ import { motion } from 'framer-motion'
 import { process as processData } from '../../data/content'
 
 const COLOR = {
-  teal: {
-    bg: 'bg-teal-500',
-    border: 'border-teal-500/30',
-    glow: 'shadow-teal-500/50',
-    pulse: 'bg-teal-500',
-    label: 'text-teal-400',
+  blue400: {
+    bg: 'bg-blue-400',
+    border: 'border-blue-400/30',
+    glow: 'shadow-blue-400/50',
+    pulse: 'bg-blue-400',
+    label: 'text-blue-300',
   },
-  blue: {
+  blue500: {
     bg: 'bg-blue-500',
     border: 'border-blue-500/30',
     glow: 'shadow-blue-500/50',
     pulse: 'bg-blue-500',
     label: 'text-blue-400',
   },
-  violet: {
-    bg: 'bg-violet-500',
-    border: 'border-violet-500/30',
-    glow: 'shadow-violet-500/50',
-    pulse: 'bg-violet-500',
-    label: 'text-violet-400',
+  blue600: {
+    bg: 'bg-blue-600',
+    border: 'border-blue-600/30',
+    glow: 'shadow-blue-600/50',
+    pulse: 'bg-blue-600',
+    label: 'text-blue-500',
   },
-  rose: {
-    bg: 'bg-rose-500',
-    border: 'border-rose-500/30',
-    glow: 'shadow-rose-500/50',
-    pulse: 'bg-rose-500',
-    label: 'text-rose-400',
-  },
-  grey: {
-    bg: 'bg-slate-500',
-    border: 'border-slate-500/30',
-    glow: 'shadow-slate-500/50',
-    pulse: 'bg-slate-500',
-    label: 'text-slate-400',
-  },
-  amber: {
-    bg: 'bg-amber-500',
-    border: 'border-amber-500/30',
-    glow: 'shadow-amber-500/50',
-    pulse: 'bg-amber-500',
-    label: 'text-amber-400',
+  blue700: {
+    bg: 'bg-blue-700',
+    border: 'border-blue-700/30',
+    glow: 'shadow-blue-700/50',
+    pulse: 'bg-blue-700',
+    label: 'text-blue-600',
   },
 }
 
@@ -51,7 +37,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="py-20 px-6 section-divider bg-line-grid"
+      className="py-20 px-6 section-divider bg-dot-grid"
     >
       <div className="max-w-6xl mx-auto">
 
