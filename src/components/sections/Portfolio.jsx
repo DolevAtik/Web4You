@@ -83,14 +83,39 @@ function StickyCard({ item, index, containerRef }) {
           transformOrigin: 'top center',
           aspectRatio: '3 / 2',
         }}
-        className="relative block w-full rounded-2xl overflow-hidden cursor-pointer"
+        className="relative block w-full rounded-2xl overflow-hidden cursor-pointer group"
       >
         <img
           src={item.image}
           alt={item.title}
           loading="lazy"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
         />
+
+        {/* Text Overlay */}
+        <div className="absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-transparent backdrop-blur-[2px]">
+          <div className="flex flex-col gap-1 md:gap-2">
+            {/* Tag */}
+            <div className="flex items-center gap-2 mb-1">
+               <span
+                 className="px-2 py-0.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase"
+                 style={{ backgroundColor: accent.tagBg, color: accent.tagText }}
+               >
+                 {item.tag}
+               </span>
+            </div>
+
+            {/* Title */}
+            <h3 className="font-rajdhani font-bold text-lg md:text-2xl text-white leading-none">
+              {item.title}
+            </h3>
+
+            {/* Description */}
+            <p className="font-assistant text-xs md:text-sm text-gray-300 leading-tight md:leading-relaxed max-w-[90%] whitespace-pre-line line-clamp-2 md:line-clamp-none">
+              {item.description}
+            </p>
+          </div>
+        </div>
       </motion.a>
     </div>
   )
@@ -147,7 +172,7 @@ export default function Portfolio() {
           <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
             {portfolio.sectionTitle}
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto font-assistant text-lg leading-relaxed">
+          <p className="text-gray-400 max-w-2xl mx-auto font-assistant text-lg leading-relaxed antialiased whitespace-pre-line">
             {portfolio.sectionSubtitle}
           </p>
         </motion.div>
@@ -156,10 +181,10 @@ export default function Portfolio() {
       {/* Sticky stack — block layout, explicit height for reliable scroll tracking */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-5xl mx-auto px-12 md:px-24"
+        className="relative w-full max-w-5xl mx-auto px-12 md:px-24 mb-20 md:mb-40"
         style={{
           overflow: 'visible',
-          height: `${(total + 1) * SLOT_PX}px`,
+          height: `calc(${(total + 1) * SLOT_PX}px + 50vh)`,
         }}
       >
         {portfolio.items.map((item, i) => (

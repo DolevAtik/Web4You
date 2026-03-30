@@ -45,7 +45,6 @@ export const navLinks = [
 export const hero = {
   headline: "אנחנו בונים לך אתר שמביא לקוחות",
   headlineAccent: "– לא רק נראה טוב",
-  subheadline: "פתרונות עיצוב ופיתוח מקצועיים שממירים מבקרים ללידים אמיתיים",
   ctaPrimary: {
     label: "בוא נתחיל",
     href: "#contact-form",
@@ -74,14 +73,14 @@ export const benefits = {
       icon: "DollarSign",
       color: "emerald",
       title: "מחיר",
-      description: "איכות פרימיום בחצי מחיר מהשוק — בלי עלויות מוסתרות ובלי הפתעות",
+      description: "איכות פרימיום בחצי מחיר מהשוק   בלי  הפתעות ובלי עלויות נסתרות",
     },
     {
       id: "speed",
       icon: "Zap",
       color: "orange",
       title: "מהירות בנייה",
-      description: "אנחנו מפתחים אתרים במהירות שיא - תוך 5 ימי עסקים בלבד",
+      description: " מפתחים אתרים במהירות שיא  תוך 5 ימי עסקים בלבד",
     },
     {
       id: "custom",
@@ -95,7 +94,7 @@ export const benefits = {
       icon: "Globe",
       color: "violet",
       title: "אינטגרציה מלאה",
-      description: "וואטסאפ, טלפון, מיילים וטפסים - הכל בשביל להביא לקוחות ולידים",
+      description: "וואטסאפ, טלפון, מיילים וטפסים  הכל בשביל להביא לקוחות ולידים",
     },
 
   ],
@@ -103,31 +102,31 @@ export const benefits = {
 
 // ── Process ──────────────────────────────────────────────────
 export const process = {
-  sectionTitle: "תהליך העבודה - פשוט וברור",
+  sectionTitle: "תהליך העבודה",
   steps: [
     {
       number: 1,
       color: "blue",
-      title: "פגישת ייעוץ",
+      title: "השארת פרטים",
       description: "נבין לעומק את הצרכים של העסק שלך ונבנה תוכנית עבודה",
     },
     {
       number: 2,
-      color: "teal",
+      color: "grey",
       title: "בנייה ופיתוח",
-      description: "אנחנו בונים את האתר בטכנולוגיות הטובות ביותר ומעלים גרסה ראשונית",
+      description: "אנחנו בונים לך אתר מקצועי ואיכותי תוך 5 ימי עסקים בלבד",
     },
     {
       number: 3,
-      color: "blue",
+      color: "rose",
       title: "פידבק ושינויים",
-      description: "אתה נותן לנו פידבק ואנחנו מבצעים את השינויים הנדרשים",
+      description: "קבלת פידבק ותיקונים ממכם לשביעות רצון מלאה",
     },
     {
       number: 4,
-      color: "teal",
+      color: "amber",
       title: "עלייה לאוויר",
-      description: "האתר שלך חי ועובד בעולם עם תיעוד מלא",
+      description: "האתר שלכם חי ומוכן לעבודה ",
     },
   ],
 };
@@ -136,7 +135,7 @@ export const process = {
 export const portfolio = {
   sectionTitle: "עבודות שלנו",
   sectionSubtitle:
-    "הנה כמה מהפרויקטים שבנינו. כל אחד מהם הוא סיפור הצלחה של עסק קטן שהפך לגדול",
+    " כל אחד מהם הוא סיפור הצלחה \n של עסק קטן שהפך לגדול ",
   cta: {
     placeholder: "וגם הפרויקט שלך יכול להיות כאן",
     label: "בואו נתחיל ←",
@@ -149,7 +148,7 @@ export const portfolio = {
       id: "liel-edri-baking",
       title: "Liel Edri Baking",
       description:
-        "עיצוב יוקרתי נקי לחברת אפיה מקצועית עם דגש על חווית משתמש והגדלת המכירות.",
+        "עיצוב יוקרתי ונקי לחברת אפיה מקצועית\n  עם דגש על חווית משתמש והגדלת המכירות.",
       image: "images/liel-edri-baking.png",
       url: "https://dolevatik.github.io/Liel-Edri-Baking/",
       tag: "קינוחי בוטיק",
@@ -167,16 +166,16 @@ export const portfolio = {
       id: "lital-kitchen",
       title: "LITAL KITCHEN",
       description:
-        "קטלוג מוצרים מודרני למטבח ביתי עם עיצוב מנומק. חוויה קנייה חלקה ונוחה .",
+        "קטלוג מוצרים מודרני של מטבח ביתי לצורך הגדלת המכירות ",
       image: "images/lital-kitchen.png",
       url: "https://dolevatik.github.io/LITAL-KITCHEN/",
-      tag: "מסחר אלקטרוני",
+      tag: "אוכל ביתי",
     },
     {
       id: "tomer-portfolio",
       title: "Tomer Portfolio",
       description:
-        "פורטפוליו למפתח עם עיצוב מודרני ויוקרתי להצגת פרטים אישיים לצורך התבלטות בשוק העבודה",
+        "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי\n לצורך הצגת פרויקטים אישיים והתבלטות בשוק העבודה",
       image: "images/tomerweb.jpeg",
       url: "https://tomernado.github.io/tomer-portfolio/",
       tag: "פורטפוליו",
@@ -185,7 +184,7 @@ export const portfolio = {
       id: "or-levy",
       title: "Or Levy Finance",
       description:
-        "אתר תדמית לאיש פיננסים עם עיצוב מודרני ויוקרתי להגדלת הלידים.",
+        "אתר תדמית לאיש פיננסים עם עיצוב מודרני \n לצורך  הצגת שירותים והגדלת הלידים",
       image: "images/or-levy.png",
       url: "https://orlevy-finance.vercel.app/",
       tag: "פיננסים",
@@ -203,7 +202,7 @@ export const portfolio = {
       id: "dl-baloons",
       title: "DL Baloons",
       description:
-        "אתר מכירות בלונים יוקרתיים עם עיצוב נקי. מאוד יעיל בהגברת ההזמנות ויצירת קשר עם לקוחות.",
+        "אתר מכירות בלונים יוקרתיים עם עיצוב נקי. \n יעיל בהגברת ההזמנות ויצירת קשר עם לקוחות",
       image: "images/dl-baloons.png",
       url: "https://dolevatik.github.io/DL-Baloons/",
       tag: "מכירות",
@@ -212,7 +211,7 @@ export const portfolio = {
       id: "mentconnect",
       title: "MentConnect",
       description:
-        "פלטפורמה מתקדמת לחיבור בין מנטורים ומחפשים עצה. ממשק ידידותי ופונקציונליות חזקה לתקשורת יעילה.",
+        "פלטפורמה מתקדמת לחיבור בין מנטורים בתעשייה\n ממשק ידידותי עם ניהול משתמשים ותקשורת יעילה",
       image: "images/mentconnect.png",
       url: "https://mentconnect.vercel.app/",
       tag: "פלטפורמה",
@@ -221,7 +220,7 @@ export const portfolio = {
       id: "amit-hadbarot",
       title: "עמית הדברות",
       description:
-        "דף נחיתה למדביר מקצועי עם עיצוב דינאמי להבאת לקוחות חדשים .",
+        "דף נחיתה למדביר מקצועי עם עיצוב דינאמי \n לצורך הבאת לקוחות חדשים והצגת שירותים ",
       image: "images/amit-hadbarot.png",
       url: "https://tomernado.github.io/amit-hadbarot/",
       tag: "שירותים מקצועיים",
@@ -240,9 +239,9 @@ export const contactSection = {
       color: "teal",
       title: "ישירות אלינו",
       items: [
-        { label: "", display: contact.email, href: contact.emailHref },
-        { label: "", display: contact.phone2, href: `https://wa.me/972543210990?text=${encodeURIComponent(contact.whatsapp.defaultMessage)}`, external: true },
         { label: "", display: contact.phone, href: contact.whatsapp.href, external: true },
+        { label: "", display: contact.phone2, href: `https://wa.me/972543210990?text=${encodeURIComponent(contact.whatsapp.defaultMessage)}`, external: true },
+        { label: "", display: contact.email, href: contact.emailHref },
       ],
     },
   ],

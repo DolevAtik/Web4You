@@ -4,18 +4,46 @@ import { process as processData } from '../../data/content'
 
 const COLOR = {
   teal: {
-    bg:     'bg-teal-500',
+    bg: 'bg-teal-500',
     border: 'border-teal-500/30',
-    glow:   'shadow-teal-500/50',
-    pulse:  'bg-teal-500',
-    label:  'text-teal-400',
+    glow: 'shadow-teal-500/50',
+    pulse: 'bg-teal-500',
+    label: 'text-teal-400',
   },
   blue: {
-    bg:     'bg-blue-500',
+    bg: 'bg-blue-500',
     border: 'border-blue-500/30',
-    glow:   'shadow-blue-500/50',
-    pulse:  'bg-blue-500',
-    label:  'text-blue-400',
+    glow: 'shadow-blue-500/50',
+    pulse: 'bg-blue-500',
+    label: 'text-blue-400',
+  },
+  violet: {
+    bg: 'bg-violet-500',
+    border: 'border-violet-500/30',
+    glow: 'shadow-violet-500/50',
+    pulse: 'bg-violet-500',
+    label: 'text-violet-400',
+  },
+  rose: {
+    bg: 'bg-rose-500',
+    border: 'border-rose-500/30',
+    glow: 'shadow-rose-500/50',
+    pulse: 'bg-rose-500',
+    label: 'text-rose-400',
+  },
+  grey: {
+    bg: 'bg-slate-500',
+    border: 'border-slate-500/30',
+    glow: 'shadow-slate-500/50',
+    pulse: 'bg-slate-500',
+    label: 'text-slate-400',
+  },
+  amber: {
+    bg: 'bg-amber-500',
+    border: 'border-amber-500/30',
+    glow: 'shadow-amber-500/50',
+    pulse: 'bg-amber-500',
+    label: 'text-amber-400',
   },
 }
 
@@ -70,9 +98,9 @@ export default function Process() {
                   {/* Number bubble */}
                   <div className="relative mb-6 flex justify-center md:justify-start w-full">
                     <div
-                      className={`relative w-12 h-12 md:w-14 md:h-14 ${c.bg} rounded-2xl flex items-center justify-center shadow-lg ${c.glow}`}
+                      className={`relative w-14 h-14 ${c.bg} rounded-2xl flex items-center justify-center shadow-lg ${c.glow}`}
                     >
-                      <span className="font-rajdhani font-bold text-xl md:text-2xl text-white relative z-10">
+                      <span className="font-rajdhani font-bold text-2xl text-white relative z-10">
                         {step.number}
                       </span>
                       {/* Pulsing ring */}
@@ -90,20 +118,20 @@ export default function Process() {
                   </div>
 
                   {/* Card */}
-                  <div
-                    className={`
-                      w-full h-full flex flex-col
-                      bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
-                      border ${c.border}
-                      rounded-2xl p-4 md:p-6
-                    `}
-                  >
-                    <h3 className="font-rajdhani font-bold text-lg md:text-xl text-white mb-2 md:mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed">
-                      {step.description}
-                    </p>
+                    <div
+                      className={`
+                        w-full h-full flex flex-col
+                        bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
+                        border ${c.border}
+                        rounded-2xl p-4 md:p-6
+                      `}
+                    >
+                      <h3 className="font-rajdhani font-bold text-lg md:text-xl text-white mb-2 md:mb-3">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed">
+                        {step.description}
+                      </p>
                   </div>
                 </motion.div>
               )

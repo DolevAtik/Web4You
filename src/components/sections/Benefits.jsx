@@ -8,48 +8,48 @@ const ICON_MAP = { Zap, Paintbrush, Globe, BarChart3, DollarSign }
 
 const COLOR = {
   teal: {
-    iconBg:   'bg-teal-500/[0.15]',
-    icon:     'text-teal-400',
-    border:   'border-teal-500/30',
-    hover:    'hover:border-teal-400/50',
-    glow:     'hover:shadow-teal-500/10',
+    iconBg: 'bg-teal-500/[0.15]',
+    icon: 'text-teal-400',
+    border: 'border-teal-500/30',
+    hover: 'hover:border-teal-400/50',
+    glow: 'hover:shadow-teal-500/10',
   },
   blue: {
-    iconBg:   'bg-blue-500/[0.15]',
-    icon:     'text-blue-400',
-    border:   'border-blue-500/30',
-    hover:    'hover:border-blue-400/50',
-    glow:     'hover:shadow-blue-500/10',
+    iconBg: 'bg-blue-500/[0.15]',
+    icon: 'text-blue-400',
+    border: 'border-blue-500/30',
+    hover: 'hover:border-blue-400/50',
+    glow: 'hover:shadow-blue-500/10',
   },
   violet: {
-    iconBg:   'bg-violet-500/[0.15]',
-    icon:     'text-violet-400',
-    border:   'border-violet-500/30',
-    hover:    'hover:border-violet-400/50',
-    glow:     'hover:shadow-violet-500/10',
+    iconBg: 'bg-violet-500/[0.15]',
+    icon: 'text-violet-400',
+    border: 'border-violet-500/30',
+    hover: 'hover:border-violet-400/50',
+    glow: 'hover:shadow-violet-500/10',
   },
   orange: {
-    iconBg:   'bg-orange-500/[0.15]',
-    icon:     'text-orange-400',
-    border:   'border-orange-500/30',
-    hover:    'hover:border-orange-400/50',
-    glow:     'hover:shadow-orange-500/10',
+    iconBg: 'bg-orange-500/[0.15]',
+    icon: 'text-orange-400',
+    border: 'border-orange-500/30',
+    hover: 'hover:border-orange-400/50',
+    glow: 'hover:shadow-orange-500/10',
   },
   emerald: {
-    iconBg:   'bg-emerald-500/[0.15]',
-    icon:     'text-emerald-400',
-    border:   'border-emerald-500/30',
-    hover:    'hover:border-emerald-400/50',
-    glow:     'hover:shadow-emerald-500/10',
+    iconBg: 'bg-emerald-500/[0.15]',
+    icon: 'text-emerald-400',
+    border: 'border-emerald-500/30',
+    hover: 'hover:border-emerald-400/50',
+    glow: 'hover:shadow-emerald-500/10',
   },
 }
 
 // Float keyframes per card (staggered phase offsets)
 const FLOAT = [
-  [0, -11, 3, -8,  0],
-  [0,  -8, 5, -11, 0],
-  [0, -10, 4, -7,  0],
-  [0,  -9, 6, -12, 0],
+  [0, -11, 3, -8, 0],
+  [0, -8, 5, -11, 0],
+  [0, -10, 4, -7, 0],
+  [0, -9, 6, -12, 0],
 ]
 
 export default function Benefits() {
@@ -77,10 +77,10 @@ export default function Benefits() {
         </motion.div>
 
         {/* ── Cards ── */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
           {benefits.items.map((item, i) => {
-            const Icon   = ICON_MAP[item.icon] ?? Zap
-            const colors = COLOR[item.color]   ?? COLOR.teal
+            const Icon = ICON_MAP[item.icon] ?? Zap
+            const colors = COLOR[item.color] ?? COLOR.teal
 
             return (
               // Outer: scroll-reveal entrance
@@ -90,7 +90,6 @@ export default function Benefits() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="h-full"
               >
                 {/* Inner: continuous water float */}
                 <motion.div
@@ -124,7 +123,7 @@ export default function Benefits() {
                     <h3 className="font-rajdhani font-bold text-base md:text-lg text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed">
+                    <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed line-clamp-2">
                       {item.description}
                     </p>
                   </div>
