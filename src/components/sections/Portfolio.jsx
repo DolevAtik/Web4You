@@ -184,7 +184,7 @@ export default function Portfolio() {
         className="relative w-full max-w-5xl mx-auto px-12 md:px-24 mb-10 md:mb-20"
         style={{
           overflow: 'visible',
-          height: `calc(${(total + 1) * SLOT_PX}px + 40vh)`,
+          height: `calc(${(total + 1) * SLOT_PX}px + 50vh)`,
         }}
       >
         {portfolio.items.map((item, i) => (

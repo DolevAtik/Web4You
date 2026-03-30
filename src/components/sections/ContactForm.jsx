@@ -68,7 +68,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="py-20 px-6 section-divider bg-dot-grid"
+      className="relative z-20 py-20 px-6 section-divider bg-slate-950 bg-dot-grid"
     >
       <div className="max-w-2xl mx-auto">
 
@@ -248,16 +248,7 @@ export default function ContactForm() {
                   )}
                 </motion.button>
 
-                <p className="text-center text-gray-600 text-xs font-assistant">
-                  או דברו איתנו ישירות:
-                  <a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer" className="text-teal-500 hover:text-teal-400 mr-1">
-                    וואטסאפ
-                  </a>
-                  ·
-                  <a href={contact.phoneHref} className="text-teal-500 hover:text-teal-400 mr-1 mr-1">
-                    {contact.phone}
-                  </a>
-                </p>
+
               </motion.form>
             )}
           </AnimatePresence>

@@ -106,25 +106,25 @@ export const process = {
   steps: [
     {
       number: 1,
-      color: "blue",
+      color: "teal",
       title: "השארת פרטים",
       description: "נבין לעומק את הצרכים של העסק שלך ונבנה תוכנית עבודה",
     },
     {
       number: 2,
-      color: "grey",
+      color: "blue",
       title: "בנייה ופיתוח",
       description: "אנחנו בונים לך אתר מקצועי ואיכותי תוך 5 ימי עסקים בלבד",
     },
     {
       number: 3,
-      color: "rose",
+      color: "violet",
       title: "פידבק ושינויים",
       description: "קבלת פידבק ותיקונים ממכם לשביעות רצון מלאה",
     },
     {
       number: 4,
-      color: "amber",
+      color: "rose",
       title: "עלייה לאוויר",
       description: "האתר שלכם חי ומוכן לעבודה ",
     },

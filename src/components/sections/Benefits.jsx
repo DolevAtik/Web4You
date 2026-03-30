@@ -77,7 +77,7 @@ export default function Benefits() {
         </motion.div>
 
         {/* ── Cards ── */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {benefits.items.map((item, i) => {
             const Icon = ICON_MAP[item.icon] ?? Zap
             const colors = COLOR[item.color] ?? COLOR.teal
@@ -90,6 +90,7 @@ export default function Benefits() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.15, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="h-full"
               >
                 {/* Inner: continuous water float */}
                 <motion.div
@@ -107,23 +108,24 @@ export default function Benefits() {
                       h-full group cursor-default
                       bg-slate-900 sm:bg-white/[0.04] sm:backdrop-blur-xl
                       border ${colors.border} ${colors.hover}
-                      rounded-2xl p-4 md:p-5
+                      rounded-2xl p-6 md:p-8
+                      flex flex-col items-center text-center
                       transition-all duration-300
                       shadow-xl ${colors.glow} hover:shadow-2xl
                     `}
                   >
                     {/* Icon */}
                     <div
-                      className={`w-10 h-10 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-14 h-14 ${colors.iconBg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                     >
-                      <Icon className={`w-5 h-5 ${colors.icon}`} strokeWidth={1.8} />
+                      <Icon className={`w-7 h-7 ${colors.icon}`} strokeWidth={1.8} />
                     </div>
 
                     {/* Text */}
-                    <h3 className="font-rajdhani font-bold text-base md:text-lg text-white mb-2">
+                    <h3 className="font-rajdhani font-bold text-xl md:text-2xl text-white mb-3">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed line-clamp-2">
+                    <p className="text-gray-400 font-assistant text-sm md:text-base leading-relaxed">
                       {item.description}
                     </p>
                   </div>
