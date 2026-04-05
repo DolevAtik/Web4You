@@ -80,7 +80,7 @@ export const benefits = {
       icon: "Zap",
       color: "orange",
       title: "מהירות בנייה",
-      description: "מפתחים אתרים במהירות שיא תוך ימים ספורים בלבד",
+      description: "מפתחים אתרים במהירות שיא ללא עיכובים מיותרים",
     },
     {
       id: "custom",
@@ -114,7 +114,7 @@ export const process = {
       number: 2,
       color: "blue500",
       title: "בנייה ופיתוח",
-      description: "אנחנו בונים לך אתר מקצועי ואיכותי תוך 5 ימי עסקים בלבד",
+      description: "אנחנו בונים לך אתר מקצועי ואיכותי תוך ימים ספורים בלבד",
     },
     {
       number: 3,
