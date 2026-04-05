@@ -114,7 +114,7 @@ export const process = {
       number: 2,
       color: "blue500",
       title: "בנייה ופיתוח",
-      description: "אנחנו בונים לך אתר מקצועי ואיכותי תוך ימים ספורים בלבד",
+      description: "אנחנו בונים לך אתר מקצועי ואיכותי עד 5 ימי עסקים בלבד",
     },
     {
       number: 3,
