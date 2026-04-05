@@ -139,8 +139,37 @@ export default function Hero() {
         {/* CTAs */}
         <motion.div
           variants={item}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-row gap-4 justify-center items-center"
         >
+          {/* Instagram Button */}
+          <motion.a
+            href="https://www.instagram.com/web4you_official?igsh=MXZwZjM3dHh6MHdyaQ=="
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="עקבו אחרינו באינסטגרם"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className="flex items-center justify-center w-14 h-14 rounded-xl border border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-300 shadow-lg"
+          >
+            <svg
+              className="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#f9a825" />
+                  <stop offset="40%" stopColor="#e91e8c" />
+                  <stop offset="100%" stopColor="#9c27b0" />
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-grad)" strokeWidth="1.8" />
+              <circle cx="12" cy="12" r="4.2" stroke="url(#ig-grad)" strokeWidth="1.8" />
+              <circle cx="17.2" cy="6.8" r="1" fill="url(#ig-grad)" />
+            </svg>
+          </motion.a>
+
           <motion.a
             href={hero.ctaPrimary.href}
             whileHover={{ scale: 1.05 }}
@@ -175,7 +204,7 @@ export default function Hero() {
               >
                 {stat.value}
               </div>
-              <p className="text-gray-500 text-xs mt-1 font-assistant leading-snug">
+              <p className="text-gray-500 text-sm mt-1 font-assistant leading-snug">
                 {stat.label}
               </p>
             </motion.div>

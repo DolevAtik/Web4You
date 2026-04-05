@@ -80,7 +80,7 @@ export const benefits = {
       icon: "Zap",
       color: "orange",
       title: "מהירות בנייה",
-      description: " מפתחים אתרים במהירות שיא  תוך 5 ימי עסקים בלבד",
+      description: "מפתחים אתרים במהירות שיא תוך ימים ספורים בלבד",
     },
     {
       id: "custom",
@@ -180,15 +180,6 @@ export const portfolio = {
       tag: "אוכל ביתי",
     },
     {
-      id: "tomer-portfolio",
-      title: "Tomer Portfolio",
-      description:
-        "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי \n לצורך הצגת פרויקטים אישיים",
-      image: "images/tomer-fix.jpeg",
-      url: "https://tomernado.github.io/tomer-portfolio/",
-      tag: "פורטפוליו",
-    },
-    {
       id: "or-levy",
       title: "Or Levy Finance",
       description:
@@ -196,6 +187,15 @@ export const portfolio = {
       image: "images/or-levy.png",
       url: "https://orlevy-finance.vercel.app/",
       tag: "פיננסים",
+    },
+    {
+      id: "tomer-portfolio",
+      title: "Tomer Portfolio",
+      description:
+        "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי \n לצורך הצגת פרויקטים אישיים",
+      image: "images/tomer-fix.jpeg",
+      url: "https://tomernado.github.io/tomer-portfolio/",
+      tag: "פורטפוליו",
     },
     {
       id: "dl-baloons",

@@ -125,7 +125,7 @@ export default function Benefits() {
                     <h3 className="font-rajdhani font-bold text-base md:text-lg text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-assistant text-[10px] xs:text-xs md:text-sm leading-relaxed">
+                    <p className="text-gray-400 font-assistant text-xs md:text-base leading-relaxed">
                       {item.description}
                     </p>
                   </div>

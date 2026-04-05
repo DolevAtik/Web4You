@@ -7,7 +7,6 @@ import Portfolio from './components/sections/Portfolio'
 import ContactSection from './components/sections/ContactSection'
 import ContactForm from './components/sections/ContactForm'
 import Footer from './components/Footer'
-import WhatsAppButton from './components/WhatsAppButton'
 
 export default function App() {
   return (
@@ -30,7 +29,6 @@ export default function App() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   )
 }

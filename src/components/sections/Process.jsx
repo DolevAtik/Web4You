@@ -115,7 +115,7 @@ export default function Process() {
                       <h3 className="font-rajdhani font-bold text-lg md:text-xl text-white mb-2 md:mb-3">
                         {step.title}
                       </h3>
-                      <p className="text-gray-400 font-assistant text-xs md:text-sm leading-relaxed">
+                      <p className="text-gray-400 font-assistant text-xs md:text-base leading-relaxed">
                         {step.description}
                       </p>
                   </div>
