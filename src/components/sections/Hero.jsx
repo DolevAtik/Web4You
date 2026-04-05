@@ -157,16 +157,9 @@ export default function Hero() {
               fill="none"
               aria-hidden="true"
             >
-              <defs>
-                <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#f9a825" />
-                  <stop offset="40%" stopColor="#e91e8c" />
-                  <stop offset="100%" stopColor="#9c27b0" />
-                </linearGradient>
-              </defs>
-              <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="url(#ig-grad)" strokeWidth="1.8" />
-              <circle cx="12" cy="12" r="4.2" stroke="url(#ig-grad)" strokeWidth="1.8" />
-              <circle cx="17.2" cy="6.8" r="1" fill="url(#ig-grad)" />
+              <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" strokeWidth="1.8" />
+              <circle cx="12" cy="12" r="4.2" stroke="white" strokeWidth="1.8" />
+              <circle cx="17.2" cy="6.8" r="1" fill="white" />
             </svg>
           </motion.a>
 
