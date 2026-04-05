@@ -56,9 +56,13 @@ export default function Benefits() {
   return (
     <section
       id="benefits"
-      className="py-20 px-6 section-divider bg-dot-grid"
+      className="relative overflow-hidden py-20 px-6 section-divider bg-dot-grid"
     >
-      <div className="max-w-6xl mx-auto">
+      {/* Ambient gradient */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_30%_50%,rgba(20,184,166,0.06),transparent)] z-0" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_50%_40%_at_80%_20%,rgba(59,130,246,0.05),transparent)] z-0" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
 
         {/* ── Header ── */}
         <motion.div
@@ -68,16 +72,19 @@ export default function Benefits() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
+          <h2
+            className="font-rajdhani font-bold text-4xl md:text-5xl mb-4 heading-shimmer"
+            style={{ backgroundImage: 'linear-gradient(to left, #a5f3fc, #ffffff, #f0fdfa, #ffffff, #a5f3fc)' }}
+          >
             {benefits.sectionTitle}
           </h2>
-          <p className="text-gray-400 max-w-xl mx-auto font-assistant text-lg leading-relaxed whitespace-pre-line">
+          <p className="text-slate-300 max-w-xl mx-auto font-assistant text-lg leading-relaxed whitespace-pre-line">
             {benefits.sectionSubtitle}
           </p>
         </motion.div>
 
         {/* ── Cards ── */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 relative z-10">
           {benefits.items.map((item, i) => {
             const Icon = ICON_MAP[item.icon] ?? Zap
             const colors = COLOR[item.color] ?? COLOR.teal
@@ -125,7 +132,7 @@ export default function Benefits() {
                     <h3 className="font-rajdhani font-bold text-base md:text-lg text-white mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-400 font-assistant text-xs md:text-base leading-relaxed">
+                    <p className="text-slate-400 font-assistant text-xs md:text-base leading-relaxed">
                       {item.description}
                     </p>
                   </div>

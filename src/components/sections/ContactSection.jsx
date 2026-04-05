@@ -30,9 +30,13 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 px-6 section-divider bg-dot-grid"
+      className="relative overflow-hidden py-20 px-6 section-divider bg-dot-grid"
     >
-      <div className="max-w-4xl mx-auto text-center">
+      {/* Ambient gradient */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_60%,rgba(20,184,166,0.06),transparent)] z-0" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_40%_40%_at_20%_30%,rgba(59,130,246,0.05),transparent)] z-0" />
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center">
 
         {/* Header */}
         <motion.div
@@ -41,10 +45,13 @@ export default function ContactSection() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
+          <h2
+            className="font-rajdhani font-bold text-4xl md:text-5xl mb-4 heading-shimmer"
+            style={{ backgroundImage: 'linear-gradient(to left, #a5f3fc, #ffffff, #f0fdfa, #ffffff, #a5f3fc)' }}
+          >
             {contactSection.sectionTitle}
           </h2>
-          <p className="text-xl text-gray-400 mb-16 font-assistant">
+          <p className="text-xl text-slate-300 mb-16 font-assistant">
             {contactSection.sectionSubtitle}
           </p>
         </motion.div>
@@ -77,7 +84,7 @@ export default function ContactSection() {
                 <h3 className="font-rajdhani font-bold text-xl text-white mb-1">
                   {ch.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-5 font-assistant">
+                <p className="text-slate-400 text-sm mb-5 font-assistant">
                   {ch.description}
                 </p>
 

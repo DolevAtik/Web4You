@@ -65,32 +65,30 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-start justify-center pt-28 sm:pt-40 overflow-hidden bg-dot-grid"
     >
-      {/* ── Animated blobs — desktop only ── */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
+      {/* ── Deep space radial gradient ── */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(20,184,166,0.10),transparent)] z-0" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_40%_at_70%_80%,rgba(59,130,246,0.07),transparent)] z-0" />
+
+      {/* ── Ambient glowing blobs ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Teal top-right blob */}
         <motion.div
-          className="absolute -top-48 -right-48 w-[640px] h-[640px] rounded-full will-change-transform"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(20,184,166,0.11) 0%, transparent 68%)',
-          }}
-          animate={{ scale: [1, 1.18, 1], opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full will-change-transform"
+          style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.13) 0%, transparent 70%)', filter: 'blur(40px)' }}
+          animate={{ y: [0, -30, 0], scale: [1, 1.12, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
         />
+        {/* Blue bottom-left blob */}
         <motion.div
-          className="absolute -bottom-64 -left-48 w-[560px] h-[560px] rounded-full will-change-transform"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 68%)',
-          }}
-          animate={{ scale: [1, 1.22, 1], opacity: [0.5, 0.9, 0.5] }}
-          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+          className="absolute -bottom-48 -left-32 w-[500px] h-[500px] rounded-full will-change-transform"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', filter: 'blur(50px)' }}
+          animate={{ y: [0, 40, 0], scale: [1, 1.18, 1], opacity: [0.4, 0.8, 0.4] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
+        {/* Center subtle green shimmer */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] rounded-full will-change-transform"
-          style={{
-            background:
-              'radial-gradient(ellipse, rgba(74,222,128,0.04) 0%, transparent 60%)',
-          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full will-change-transform"
+          style={{ background: 'radial-gradient(ellipse, rgba(74,222,128,0.05) 0%, transparent 65%)', filter: 'blur(60px)' }}
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
         />
@@ -114,7 +112,10 @@ export default function Hero() {
           variants={item}
           className="font-rajdhani font-bold text-[10vw] sm:text-5xl md:text-7xl lg:text-[5.5rem] leading-tight mb-5"
         >
-          <span className="text-white whitespace-nowrap">אנחנו בונים לך אתר</span>
+          <span
+            className="heading-shimmer whitespace-nowrap"
+            style={{ backgroundImage: 'linear-gradient(to left, #a5f3fc, #ffffff, #f0fdfa, #ffffff, #a5f3fc)' }}
+          >אנחנו בונים לך אתר</span>
           <br />
           <span className="bg-gradient-to-l from-teal-300 via-teal-400 to-blue-400 bg-clip-text text-transparent text-glow-teal">
             {typed}
@@ -131,7 +132,7 @@ export default function Hero() {
         {/* Subheadline */}
         <motion.p
           variants={item}
-          className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-assistant leading-relaxed"
+          className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-assistant leading-relaxed"
         >
           {hero.subheadline}
         </motion.p>

@@ -309,8 +309,12 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative w-full bg-dot-grid section-divider py-20" style={{ overflow: 'visible' }}>
 
+      {/* Ambient gradient */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_70%_50%_at_60%_30%,rgba(139,92,246,0.05),transparent)] z-0" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_50%_40%_at_20%_70%,rgba(20,184,166,0.05),transparent)] z-0" />
+
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-6 mb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 mb-16">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 28, scale: 0.97 }}
@@ -318,8 +322,11 @@ export default function Portfolio() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">{portfolio.sectionTitle}</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto font-assistant text-lg leading-relaxed antialiased whitespace-pre-line">{portfolio.sectionSubtitle}</p>
+          <h2
+            className="font-rajdhani font-bold text-4xl md:text-5xl mb-4 heading-shimmer"
+            style={{ backgroundImage: 'linear-gradient(to left, #a5f3fc, #ffffff, #f0fdfa, #ffffff, #a5f3fc)' }}
+          >{portfolio.sectionTitle}</h2>
+          <p className="text-slate-300 max-w-2xl mx-auto font-assistant text-lg leading-relaxed antialiased whitespace-pre-line">{portfolio.sectionSubtitle}</p>
         </motion.div>
       </div>
 

@@ -68,9 +68,12 @@ export default function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="relative z-20 py-20 px-6 section-divider bg-slate-950 bg-dot-grid"
+      className="relative z-20 overflow-hidden py-20 px-6 section-divider bg-slate-950 bg-dot-grid"
     >
-      <div className="max-w-2xl mx-auto">
+      {/* Ambient gradient */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_60%_at_50%_30%,rgba(20,184,166,0.07),transparent)] z-0" />
+
+      <div className="relative z-10 max-w-2xl mx-auto">
 
         {/* Header */}
         <motion.div
@@ -80,10 +83,13 @@ export default function ContactForm() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white mb-4">
+          <h2
+            className="font-rajdhani font-bold text-4xl md:text-5xl mb-4 heading-shimmer"
+            style={{ backgroundImage: 'linear-gradient(to left, #a5f3fc, #ffffff, #f0fdfa, #ffffff, #a5f3fc)' }}
+          >
             השאר פרטים
           </h2>
-          <p className="text-gray-400 font-assistant text-lg">
+          <p className="text-slate-300 font-assistant text-lg">
             נחזור אליך תוך שעות ספורות עם הצעה מותאמת אישית
           </p>
         </motion.div>

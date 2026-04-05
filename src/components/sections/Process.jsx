@@ -37,9 +37,13 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="py-20 px-6 section-divider bg-dot-grid"
+      className="relative overflow-hidden py-20 px-6 section-divider bg-dot-grid"
     >
-      <div className="max-w-6xl mx-auto">
+      {/* Ambient gradient */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_70%_40%,rgba(59,130,246,0.06),transparent)] z-0" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_50%_40%_at_20%_70%,rgba(20,184,166,0.05),transparent)] z-0" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
 
         {/* ── Header ── */}
         <motion.div
@@ -49,7 +53,10 @@ export default function Process() {
           viewport={{ once: true, amount: 0.15, margin: '-50px' }}
           transition={{ duration: 0.65 }}
         >
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white">
+          <h2
+            className="font-rajdhani font-bold text-4xl md:text-5xl heading-shimmer"
+            style={{ backgroundImage: 'linear-gradient(to left, #a5f3fc, #ffffff, #f0fdfa, #ffffff, #a5f3fc)' }}
+          >
             {processData.sectionTitle}
           </h2>
         </motion.div>
@@ -115,7 +122,7 @@ export default function Process() {
                       <h3 className="font-rajdhani font-bold text-lg md:text-xl text-white mb-2 md:mb-3">
                         {step.title}
                       </h3>
-                      <p className="text-gray-400 font-assistant text-xs md:text-base leading-relaxed">
+                      <p className="text-slate-400 font-assistant text-xs md:text-base leading-relaxed">
                         {step.description}
                       </p>
                   </div>

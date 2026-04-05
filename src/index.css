@@ -127,6 +127,20 @@
 }
 .logo-four { animation: logo-glow 2.6s ease-in-out infinite; }
 
+/* ── Shimmer heading ───────────────────────────────────────── */
+@keyframes heading-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.heading-shimmer {
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: heading-shimmer 9s linear infinite;
+}
+
 /* ── Carousel scrollbar hide ───────────────────────────────── */
 .scrollbar-none {
   -ms-overflow-style: none;
