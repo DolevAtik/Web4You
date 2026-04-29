@@ -149,7 +149,7 @@ export const portfolio = {
       description:
         "דף נחיתה למנחה אירועים עם עיצוב חדשני \n להצגת האירועים והגדלת הלידים",
       image: "images/itay-izchaki.png",
-      url: "https://tomernado.github.io/landing-page-Itay/",
+      url: "https://itayitzhaki.com/",
       tag: "אירועים",
     },
     {
@@ -158,7 +158,7 @@ export const portfolio = {
       description:
         "עיצוב יוקרתי ונקי לחברת אפיה מקצועית\n  עם דגש על חווית משתמש והגדלת המכירות.",
       image: "images/liel-edri-fix.jpeg",
-      url: "https://dolevatik.github.io/Liel-Edri-Baking/",
+      url: "https://liel-edri-baking.vercel.app/",
       tag: "קינוחי בוטיק",
     },
     {
@@ -167,7 +167,7 @@ export const portfolio = {
       description:
         "אתר תדמית לשף פרטי להצגת תפריטים ואירועים ",
       image: "images/after-taste.png",
-      url: "https://tomernado.github.io/after-taste/",
+      url: "https://after-taste-one.vercel.app/",
       tag: "שף פרטי",
     },
     {
@@ -176,8 +176,17 @@ export const portfolio = {
       description:
         "קטלוג מוצרים מודרני של מטבח ביתי \n לצורך הגדלת המכירות וחווית לקוח",
       image: "images/lital-kitchen-fix.jpeg",
-      url: "https://dolevatik.github.io/LITAL-KITCHEN/",
+      url: "https://lital-kitchen.vercel.app/",
       tag: "אוכל ביתי",
+    },
+    {
+      id: "What2Choose",
+      title: "What2Choose",
+      description:
+        "רשת חברתית לקבלת החלטות  \n לצורך חיבור בין אנשים ויצירת קהילה פעילה",
+      image: "images/what2choose.jpeg",
+      url: "https://what2-choose.vercel.app/",
+      tag: "רשת חברתית",
     },
     {
       id: "or-levy",
@@ -189,15 +198,6 @@ export const portfolio = {
       tag: "פיננסים",
     },
     {
-      id: "tomer-portfolio",
-      title: "Tomer Portfolio",
-      description:
-        "פורטפוליו למפתח עם עיצוב חדשני וטכנלוגי \n לצורך הצגת פרויקטים אישיים",
-      image: "images/tomer-fix.jpeg",
-      url: "https://tomernado.github.io/tomer-portfolio/",
-      tag: "פורטפוליו",
-    },
-    {
       id: "dl-baloons",
       title: "DL Baloons",
       description:
@@ -205,15 +205,6 @@ export const portfolio = {
       image: "images/dl-baloons.png",
       url: "https://dolevatik.github.io/DL-Baloons/",
       tag: "מכירות",
-    },
-    {
-      id: "mentconnect",
-      title: "MentConnect",
-      description:
-        "פלטפורמה מתקדמת לחיבור בין מנטורים\n ממשק ידידותי עם ניהול משתמשים",
-      image: "images/mentconnect.png",
-      url: "https://mentconnect.vercel.app/",
-      tag: "פלטפורמה",
     },
     {
       id: "amit-hadbarot",
