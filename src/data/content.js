@@ -184,7 +184,7 @@ export const portfolio = {
       title: "What2Choose",
       description:
         "רשת חברתית לקבלת החלטות  \n לצורך חיבור בין אנשים ויצירת קהילה פעילה",
-      image: "images/what2choose.jpeg",
+      image: "images/What2Choose.jpeg",
       url: "https://what2-choose.vercel.app/",
       tag: "רשת חברתית",
     },
