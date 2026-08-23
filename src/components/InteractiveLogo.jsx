@@ -82,9 +82,8 @@ export default function InteractiveLogo({ className = '', size = 'md' }) {
           <motion.img
             src="/images/logo.png"
             alt="Web4You Logo"
-            className="w-full h-full object-contain relative z-10"
+            className="w-full h-full object-contain relative z-10 mix-blend-normal md:mix-blend-screen will-change-transform"
             style={{
-              mixBlendMode: 'screen',
               filter: 'brightness(1.1) contrast(1.05)',
               translateZ: '50px', // Extra depth
             }}

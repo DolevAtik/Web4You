@@ -63,36 +63,45 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-start justify-center pt-28 sm:pt-40 overflow-hidden bg-dot-grid"
+      className="relative min-h-screen flex items-start justify-center pt-28 sm:pt-40 overflow-hidden bg-slate-950"
     >
+      {/* ── Faded dot grid (masked so it fades toward the edges instead of a flat tile) ── */}
+      <div className="absolute inset-0 pointer-events-none bg-dot-grid [mask-image:radial-gradient(ellipse_75%_60%_at_50%_25%,black_30%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_75%_60%_at_50%_25%,black_30%,transparent_88%)] z-0" />
+
+      {/* ── Faint line grid beneath the dots for extra depth ── */}
+      <div className="absolute inset-0 pointer-events-none bg-line-grid opacity-40 [mask-image:radial-gradient(ellipse_65%_50%_at_50%_20%,black_20%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_65%_50%_at_50%_20%,black_20%,transparent_75%)] z-0" />
+
       {/* ── Deep space radial gradient ── */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(20,184,166,0.10),transparent)] z-0" />
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_40%_at_70%_80%,rgba(59,130,246,0.07),transparent)] z-0" />
 
-      {/* ── Ambient glowing blobs ── */}
+      {/* ── Ambient glowing blobs (lighter/smaller on mobile to avoid jank) ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Teal top-right blob */}
         <motion.div
-          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full will-change-transform"
-          style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.13) 0%, transparent 70%)', filter: 'blur(40px)' }}
+          className="absolute -top-20 -right-20 w-[240px] h-[240px] blur-xl md:-top-32 md:-right-32 md:w-[500px] md:h-[500px] md:blur-[40px] rounded-full will-change-transform"
+          style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.13) 0%, transparent 70%)' }}
           animate={{ y: [0, -30, 0], scale: [1, 1.12, 1], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
         />
         {/* Blue bottom-left blob */}
         <motion.div
-          className="absolute -bottom-48 -left-32 w-[500px] h-[500px] rounded-full will-change-transform"
-          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', filter: 'blur(50px)' }}
+          className="absolute -bottom-28 -left-20 w-[240px] h-[240px] blur-xl md:-bottom-48 md:-left-32 md:w-[500px] md:h-[500px] md:blur-[50px] rounded-full will-change-transform"
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)' }}
           animate={{ y: [0, 40, 0], scale: [1, 1.18, 1], opacity: [0.4, 0.8, 0.4] }}
           transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         />
-        {/* Center subtle green shimmer */}
+        {/* Center subtle green shimmer — desktop only, too costly for mobile GPUs */}
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full will-change-transform"
+          className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full will-change-transform"
           style={{ background: 'radial-gradient(ellipse, rgba(74,222,128,0.05) 0%, transparent 65%)', filter: 'blur(60px)' }}
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
         />
       </div>
+
+      {/* ── Vignette to focus attention and add depth to the edges ── */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_90%_80%_at_50%_35%,transparent_45%,rgba(2,6,23,0.65)_100%)] z-0" />
 
       {/* ── Content ── */}
       <motion.div
