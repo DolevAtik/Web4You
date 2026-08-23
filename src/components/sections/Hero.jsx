@@ -65,15 +65,22 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-start justify-center pt-28 sm:pt-40 overflow-hidden bg-slate-950"
     >
-      {/* ── Faded dot grid (masked so it fades toward the edges instead of a flat tile) ── */}
-      <div className="absolute inset-0 pointer-events-none bg-dot-grid [mask-image:radial-gradient(ellipse_75%_60%_at_50%_25%,black_30%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_75%_60%_at_50%_25%,black_30%,transparent_88%)] z-0" />
+      {/* ── Colorful gradient mesh — replaces the flat dot tile as the main backdrop ── */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background: [
+            'radial-gradient(circle at 20% 8%, rgba(20,184,166,0.24), transparent 42%)',
+            'radial-gradient(circle at 82% 4%, rgba(59,130,246,0.18), transparent 45%)',
+            'radial-gradient(circle at 50% 105%, rgba(20,184,166,0.16), transparent 55%)',
+            'radial-gradient(circle at 88% 65%, rgba(74,222,128,0.10), transparent 42%)',
+            'radial-gradient(circle at 8% 70%, rgba(59,130,246,0.10), transparent 40%)',
+          ].join(', '),
+        }}
+      />
 
-      {/* ── Faint line grid beneath the dots for extra depth ── */}
-      <div className="absolute inset-0 pointer-events-none bg-line-grid opacity-40 [mask-image:radial-gradient(ellipse_65%_50%_at_50%_20%,black_20%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_65%_50%_at_50%_20%,black_20%,transparent_75%)] z-0" />
-
-      {/* ── Deep space radial gradient ── */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(20,184,166,0.10),transparent)] z-0" />
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_40%_at_70%_80%,rgba(59,130,246,0.07),transparent)] z-0" />
+      {/* ── Faint dot accent, concentrated behind the logo/headline only ── */}
+      <div className="absolute inset-0 pointer-events-none bg-dot-grid opacity-70 [mask-image:radial-gradient(ellipse_50%_36%_at_50%_20%,black_10%,transparent_78%)] [-webkit-mask-image:radial-gradient(ellipse_50%_36%_at_50%_20%,black_10%,transparent_78%)] z-0" />
 
       {/* ── Ambient glowing blobs (lighter/smaller on mobile to avoid jank) ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -101,7 +108,13 @@ export default function Hero() {
       </div>
 
       {/* ── Vignette to focus attention and add depth to the edges ── */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_90%_80%_at_50%_35%,transparent_45%,rgba(2,6,23,0.65)_100%)] z-0" />
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 95% 85% at 50% 30%, transparent 28%, rgba(2,6,23,0.45) 65%, rgba(2,6,23,0.9) 100%)',
+        }}
+      />
 
       {/* ── Content ── */}
       <motion.div
